@@ -1,49 +1,51 @@
 <?php
 /**
- * The template for displaying pages
+ * Page template (About, Contact, etc.)
  *
  * @package Genrolla
  */
 
 get_header();
-?>
 
-<div class="container py-4">
-    <div class="row">
-        <div class="col-12">
-            <?php
-            while ( have_posts() ) :
-                the_post();
-                ?>
-                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <header class="entry-header mb-4">
-                        <h1 class="entry-title" style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">
-                            <?php the_title(); ?>
-                        </h1>
-                    </header>
+while ( have_posts() ) :
+    the_post();
+    ?>
 
+    <div class="page-hero">
+        <div class="container">
+            <?php genrolla_breadcrumb(); ?>
+            <span class="kicker"><?php esc_html_e( 'Halaman', 'genrolla' ); ?></span>
+            <h1><?php the_title(); ?></h1>
+            <?php if ( has_excerpt() ) : ?>
+                <div class="desc"><?php echo esc_html( get_the_excerpt() ); ?></div>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <div class="section" style="padding-top:16px">
+        <div class="container">
+            <div class="single-grid">
+                <article id="post-<?php the_ID(); ?>" <?php post_class( 'single-content page-content' ); ?>>
                     <?php if ( has_post_thumbnail() ) : ?>
-                        <div class="post-featured-image mb-4">
-                            <?php the_post_thumbnail( 'large' ); ?>
+                        <div class="single-featured">
+                            <?php the_post_thumbnail( 'genrolla-featured' ); ?>
                         </div>
                     <?php endif; ?>
-
-                    <div class="post-content">
+                    <div class="post-body">
                         <?php the_content(); ?>
                     </div>
-
                     <?php
                     if ( comments_open() || get_comments_number() ) {
                         comments_template();
                     }
                     ?>
                 </article>
-                <?php
-            endwhile;
-            ?>
+                <?php get_sidebar(); ?>
+            </div>
         </div>
     </div>
-</div>
 
-<?php
+    <?php
+endwhile;
+
 get_footer();

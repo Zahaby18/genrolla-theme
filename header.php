@@ -1,55 +1,65 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="profile" href="https://gmpg.org/xfn/11">
-    <?php wp_head(); ?>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<div class="announce">
+    <?php
+    $announce = get_theme_mod( 'genrolla_announce_text', '' );
+    if ( $announce ) {
+        echo wp_kses_post( $announce );
+    }
+    ?>
+</div>
+
 <header class="site-header">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-4">
-                <div class="site-branding">
-                    <?php
-                    if ( has_custom_logo() ) {
-                        the_custom_logo();
-                    } else {
-                        ?>
-                        <h1 class="site-title">
-                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                                <?php bloginfo( 'name' ); ?>
-                            </a>
-                        </h1>
-                        <?php
-                        $description = get_bloginfo( 'description', 'display' );
-                        if ( $description || is_customize_preview() ) {
-                            ?>
-                            <p class="site-description"><?php echo $description; ?></p>
-                            <?php
-                        }
-                    }
-                    ?>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <nav class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'genrolla' ); ?>">
-                    <?php
-                    wp_nav_menu( array(
-                        'theme_location' => 'primary',
-                        'menu_class'     => 'nav-menu',
-                        'container'      => false,
-                        'fallback_cb'    => false,
-                    ) );
-                    ?>
-                </nav>
-            </div>
+    <div class="container header-inner">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
+            <?php
+            if ( has_custom_logo() ) {
+                the_custom_logo();
+            } else {
+                echo bloginfo( 'name' ) ? '<span class="logo-text">' . esc_html( get_bloginfo( 'name' ) ) . '</span>' : '';
+            }
+            ?>
+            <span class="dot">.</span>
+        </a>
+
+        <nav class="main-nav" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'genrolla' ); ?>">
+            <?php
+            wp_nav_menu( array(
+                'theme_location' => 'primary',
+                'container'      => false,
+                'menu_class'     => 'main-nav-list',
+                'fallback_cb'    => 'genrolla_default_menu',
+            ) );
+            ?>
+        </nav>
+
+        <div class="header-actions">
+            <button class="icon-btn" id="genrolla-search-toggle" aria-label="<?php esc_attr_e( 'Search', 'genrolla' ); ?>">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <?php if ( get_theme_mod( 'genrolla_newsletter_shortcode' ) || get_theme_mod( 'genrolla_newsletter_form_action' ) ) : ?>
+                <a href="#genrolla-newsletter" class="btn btn-neon"><?php esc_html_e( 'Subscribe', 'genrolla' ); ?></a>
+            <?php endif; ?>
+            <button class="menu-toggle" id="genrolla-menu-toggle" aria-label="<?php esc_attr_e( 'Menu', 'genrolla' ); ?>">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Search drawer -->
+    <div class="search-drawer" id="genrolla-search-drawer">
+        <div class="container">
+            <?php get_search_form(); ?>
         </div>
     </div>
 </header>
-
-<main id="primary" class="site-main">

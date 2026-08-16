@@ -1,125 +1,84 @@
-# Genrolla WordPress Theme
+# Genrolla — Gen Z Blog Theme
 
-**Version:** 1.0.0  
-**Author:** Zahab  
-**License:** GPL v2 or later
+**Version:** 2.0.0 · **License:** GPL v2+
 
-## Description
+Fast, SEO-friendly, Gen Z blog theme. Semi-dark design with neon green accent. Dibuat untuk blog, affiliate marketing, dan AdSense monetization.
 
-Genrolla is a fast, SEO-optimized WordPress theme designed for bloggers and content creators. Perfect for affiliate marketing, AdSense monetization, and newsletter growth.
+## ✨ Fitur
 
-## Features
+- 🎨 **Design Gen Z** — semi-dark `#0F1113` + neon green `#A3FF12`, font Space Grotesk + Inter
+- 📱 **Responsive** — mobile, tablet, desktop
+- 🔍 **SEO-Ready**:
+  - Schema.org Article + BreadcrumbList (JSON-LD)
+  - Breadcrumb visual + navigasi
+  - **Table of Contents** otomatis (dari heading H2)
+  - Author box + meta lengkap (tanggal, read time, comments)
+  - H1 hierarchy benar: front-page → archive → single
+- 🚀 **One-Click Demo Import** — `Appearance → Import Demo` → 12 artikel + 5 kategori + 20 tag + featured images + komentar (sekali klik, bisa di-reset)
+- 🔥 **Trending section** — query dari post dengan komentar terbanyak
+- 🖼️ **Card image fallback** — kalau post nggak punya gambar, tampil gradient + icon
+- 📬 **Newsletter section** — support shortcode plugin (MC4WP/ConvertKit) atau form action URL
+- ⚙️ **Customizer** — warna (bg + accent), hero (image/title/subtitle/button), newsletter, copyright, social links
+- 🧩 **Gutenberg & Classic Editor** compatible (tanpa plugin page builder)
 
-✅ **Performance Optimized** - Lightweight, fast-loading code  
-✅ **SEO-Ready** - Built-in schema markup, breadcrumbs, semantic HTML5  
-✅ **Monetization-Friendly** - Pre-designed ad zones (header, sidebar, in-content, footer)  
-✅ **Newsletter Integration** - Prominent newsletter signup boxes  
-✅ **Responsive Design** - Mobile-first, works on all devices  
-✅ **Customizer Options** - Colors, logo, sidebar position, newsletter settings  
-✅ **Related Posts** - Automatic related content recommendations  
-✅ **Widget Areas** - Sidebar + 3 footer widget areas  
+## 📦 Install
 
-## Installation
+1. Download repo ini → zip
+2. WordPress Admin → Appearance → Themes → Add New → Upload Theme
+3. Activate
+4. **Appearance → Import Demo** → klik tombol (opsional, buat lihat contoh konten)
+5. **Appearance → Customize** → set logo, warna, hero
+6. **Appearance → Menus** → bikin Primary & Footer menu
+7. **Appearance → Widgets** → isi Sidebar & Footer (opsional)
 
-1. Download the theme zip file
-2. Go to WordPress Admin → Appearance → Themes → Add New
-3. Click "Upload Theme" and select the zip file
-4. Activate the theme
-5. Go to Appearance → Customize to configure settings
-
-## Theme Structure
+## 🗂️ Struktur
 
 ```
-genrolla-theme/
-├── style.css              # Main stylesheet & theme metadata
-├── functions.php          # Theme functions & features
-├── header.php             # Site header
-├── footer.php             # Site footer
-├── index.php              # Homepage template
-├── single.php             # Single post template
-├── page.php               # Page template
-├── archive.php            # Archive template
-├── search.php             # Search results template
-├── sidebar.php            # Sidebar template
-├── comments.php           # Comments template
-├── 404.php                # 404 error page
+genrolla/
+├── style.css              # Metadata + semua CSS
+├── functions.php          # Setup, customizer, SEO helpers, trending, notice
+├── header.php / footer.php / sidebar.php
+├── front-page.php         # Home: hero + trending + latest
+├── index.php              # Blog index fallback
+├── archive.php            # Category/tag/author/date
+├── single.php             # Single post + sidebar + ToC + author box
+├── page.php               # About/Contact
+├── search.php / 404.php / comments.php / searchform.php
+├── inc/demo-import.php    # One-click demo content importer
 ├── template-parts/
-│   └── newsletter-box.php # Newsletter signup box
-├── screenshot.png         # Theme screenshot (1200x900px)
-└── README.md              # This file
+│   ├── card.php           # Post card (dengan fallback image)
+│   └── author-box.php
+├── assets/js/main.js      # Menu, search drawer, ToC generator
+└── screenshot.png
 ```
 
-## Customization
+## ⚙️ Pengaturan
 
-### Colors
-Go to **Appearance → Customize → Colors** to change the primary color scheme.
+| Fitur | Lokasi |
+|---|---|
+| Logo, warna, hero, newsletter, copyright | Appearance → Customize |
+| Menu | Appearance → Menus |
+| Sidebar & Footer widgets | Appearance → Widgets |
+| Demo content | Appearance → Import Demo |
+| Recommended plugins (opsional) | Yoast/Rank Math, MC4WP/ConvertKit, Classic Editor |
 
-### Layout
-Go to **Appearance → Customize → Layout Options** to choose sidebar position (left, right, or no sidebar).
+## 💬 Newsletter
 
-### Newsletter
-Go to **Appearance → Customize → Newsletter Settings** to:
-- Edit newsletter box title and description
-- Toggle newsletter display on homepage/single posts
-- Integrate with your email service provider
+Theme menyediakan section + form HTML. Untuk beneran kirim email:
+- Install **MC4WP** (Mailchimp) atau plugin ConvertKit
+- Masukkan shortcode di **Customize → Newsletter Settings → Plugin Shortcode**
+- Atau isi **Form action URL** dengan endpoint ESP lu
 
-### Menus
-Go to **Appearance → Menus** to create:
-- Primary Menu (top navigation)
-- Footer Menu
+## 📝 Changelog
 
-### Widgets
-Go to **Appearance → Widgets** to add content to:
-- Sidebar
-- Footer Widget Area 1, 2, 3
+### 2.0.0
+- Redesign total: semi-dark + neon green (Gen Z aesthetic)
+- One-click demo importer (12 posts, categories, tags, images, comments)
+- SEO: schema, breadcrumb, ToC, author box
+- Trending section (comment count)
+- Card image fallback
+- Font Awesome icons (no emoji)
+- Responsive + mobile menu + search drawer
 
-## Ad Zones
-
-The theme includes placeholder ad zones in:
-- **Header:** 728x90 or 970x90 leaderboard
-- **Sidebar:** 300x250 or 300x600
-- **Footer:** 728x90
-
-To add ads, insert your ad code via:
-1. Widget areas (recommended)
-2. Edit the template files directly
-3. Use an ad management plugin (e.g., Ad Inserter, Advanced Ads)
-
-## Performance Tips
-
-- Use a caching plugin (WP Rocket, W3 Total Cache)
-- Optimize images before uploading (TinyPNG, ShortPixel)
-- Use a CDN for static assets
-- Keep plugins minimal
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Support
-
-For questions, bugs, or feature requests, contact: [your-email@example.com]
-
-## Changelog
-
-### 1.0.0 - 2024
-- Initial release
-- Core features: responsive layout, SEO optimization, ad zones, newsletter boxes
-- Customizer integration
-- Widget areas
-- Related posts
-
-## Credits
-
-- Bootstrap-inspired grid system
-- Icons: Bootstrap Icons (embedded SVG)
-- Fonts: System font stack for optimal performance
-
-## License
-
-This theme is licensed under the GPL v2 or later.
-http://www.gnu.org/licenses/gpl-2.0.html
+### 1.0.0
+- Initial release (classic light blog theme)

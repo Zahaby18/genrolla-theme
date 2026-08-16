@@ -1,44 +1,62 @@
-    </main><!-- #primary -->
+    <!-- NEWSLETTER -->
+    <section class="section section-alt" id="genrolla-newsletter">
+        <div class="container">
+            <div class="newsletter">
+                <div>
+                    <h2><?php echo esc_html( get_theme_mod( 'genrolla_newsletter_title', __( 'Jangan ketinggalan insight karier tiap minggu.', 'genrolla' ) ) ); ?></h2>
+                    <p><?php echo esc_html( get_theme_mod( 'genrolla_newsletter_text', __( 'Join 30,000+ pembaca yang dapet tips karier & finansial langsung ke inbox. Gratis.', 'genrolla' ) ) ); ?></p>
+                </div>
+                <?php
+                $shortcode = get_theme_mod( 'genrolla_newsletter_shortcode', '' );
+                $action    = get_theme_mod( 'genrolla_newsletter_form_action', '' );
+                if ( $shortcode ) {
+                    echo '<div class="nl-form">' . do_shortcode( $shortcode ) . '</div>';
+                } else {
+                    ?>
+                    <form class="nl-form" action="<?php echo esc_url( $action ? $action : '#' ); ?>" method="post">
+                        <input type="email" name="email" placeholder="<?php esc_attr_e( 'Email kamu...', 'genrolla' ); ?>" required>
+                        <button class="btn btn-neon" type="submit"><?php esc_html_e( 'Subscribe', 'genrolla' ); ?></button>
+                    </form>
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
+    </section>
 
     <footer class="site-footer">
         <div class="container">
-            <?php if ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3' ) ) : ?>
-                <div class="footer-widgets">
-                    <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
-                        <div class="footer-widget-area">
-                            <?php dynamic_sidebar( 'footer-1' ); ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
-                        <div class="footer-widget-area">
-                            <?php dynamic_sidebar( 'footer-2' ); ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
-                        <div class="footer-widget-area">
-                            <?php dynamic_sidebar( 'footer-3' ); ?>
-                        </div>
-                    <?php endif; ?>
+            <div class="footer-grid">
+                <div class="about">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo" style="font-size:22px">
+                        <?php echo esc_html( get_bloginfo( 'name' ) ); ?><span class="dot">.</span>
+                    </a>
+                    <p><?php echo esc_html( get_bloginfo( 'description' ) ); ?></p>
+                    <div class="social">
+                        <?php
+                        $socials = array( 'facebook', 'x-twitter', 'instagram', 'youtube', 'tiktok', 'linkedin' );
+                        foreach ( $socials as $social ) {
+                            $url = get_theme_mod( "genrolla_social_{$social}", '' );
+                            if ( $url ) {
+                                echo '<a href="' . esc_url( $url ) . '" class="icon-btn" target="_blank" rel="noopener"><i class="fa-brands fa-' . esc_attr( $social ) . '"></i></a>';
+                            }
+                        }
+                        ?>
+                    </div>
                 </div>
-            <?php endif; ?>
 
-            <div class="site-info">
-                <p>
-                    &copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>. 
-                    <?php esc_html_e( 'All rights reserved.', 'genrolla' ); ?>
-                </p>
-                <?php
-                if ( has_nav_menu( 'footer' ) ) {
-                    wp_nav_menu( array(
-                        'theme_location' => 'footer',
-                        'container'      => 'nav',
-                        'menu_class'     => 'footer-menu',
-                        'depth'          => 1,
-                    ) );
-                }
-                ?>
+                <?php for ( $i = 1; $i <= 3; $i++ ) : ?>
+                    <div>
+                        <?php if ( is_active_sidebar( "footer-$i" ) ) : ?>
+                            <?php dynamic_sidebar( "footer-$i" ); ?>
+                        <?php endif; ?>
+                    </div>
+                <?php endfor; ?>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>. <?php echo esc_html( get_theme_mod( 'genrolla_copyright', __( 'All rights reserved.', 'genrolla' ) ) ); ?></span>
+                <span class="made"><?php printf( esc_html__( 'Dibuat dengan %s di Indonesia', 'genrolla' ), '<i class="fa-solid fa-mug-hot"></i> & <b>neon</b>' ); ?></span>
             </div>
         </div>
     </footer>
