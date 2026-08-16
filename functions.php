@@ -312,7 +312,7 @@ function genrolla_breadcrumb() {
  * MISC HELPERS
  * ============================================================ */
 
-/* Trending posts: most commented, fallback to random */
+/* Trending posts: most commented first, fallback to "Highlight" category, then latest */
 function genrolla_get_trending( $count = 3 ) {
     $args = array(
         'posts_per_page'      => $count,
@@ -322,11 +322,36 @@ function genrolla_get_trending( $count = 3 ) {
         'no_found_rows'       => true,
     );
     $q = new WP_Query( $args );
-    if ( $q->have_posts() ) {
-        return $q->posts;
+    $posts = $q->posts;
+
+    // Check if any returned post actually has comments
+    $has_comments = false;
+    foreach ( $posts as $p ) {
+        if ( ! empty( $p->comment_count ) && (int) $p->comment_count > 0 ) {
+            $has_comments = true;
+            break;
+        }
     }
-    // fallback: latest
-    return get_posts( array( 'posts_per_page' => $count ) );
+
+    if ( ! $has_comments ) {
+        // Fallback 1: posts from "Highlight" category (slug: highlight)
+        $term = get_term_by( 'slug', 'highlight', 'category' );
+        if ( $term ) {
+            $hl = new WP_Query( array(
+                'posts_per_page'      => $count,
+                'cat'                 => (int) $term->term_id,
+                'ignore_sticky_posts' => true,
+                'no_found_rows'       => true,
+            ) );
+            if ( $hl->have_posts() ) {
+                return $hl->posts;
+            }
+        }
+        // Fallback 2: latest posts
+        return get_posts( array( 'posts_per_page' => $count, 'ignore_sticky_posts' => true ) );
+    }
+
+    return $posts;
 }
 
 /* Read time */
