@@ -448,9 +448,9 @@ footer.site-footer{background:var(--bg-footer);border-top:1px solid var(--line);
   .logo-text{font-size:22px}
 }
 
-/* About & Full Width page layout */
-.about-content{max-width:760px;margin:0 auto}
-.page-content.fullwidth{max-width:860px;margin:0 auto}
+/* About & Full Width page layout — rata kiri, bukan center */
+.about-content{max-width:760px;margin:0}
+.page-content.fullwidth{max-width:860px;margin:0}
 @media(max-width:768px){
   .about-content,.page-content.fullwidth{max-width:100%}
 }
