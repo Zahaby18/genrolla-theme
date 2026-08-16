@@ -32,7 +32,7 @@ html{scroll-behavior:smooth}
 body{font-family:var(--font-body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
 
 /* ---------- ANNOUNCEMENT ---------- */
 .announce{background:var(--neon);color:#0F1113;text-align:center;padding:9px 16px;font-size:13px;font-weight:600}
@@ -62,7 +62,7 @@ nav.main-nav a.active::after{content:"";position:absolute;left:0;bottom:-2px;wid
 .hero{position:relative;min-height:92vh;display:flex;align-items:flex-start;overflow:hidden;padding-top:140px}
 .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-image:url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1600&auto=format&fit=crop');filter:brightness(.5)}
 .hero .container{position:relative;z-index:2;width:100%}
-.hero-content{max-width:720px;text-align:left;margin-left:0;padding-left:24px;position:relative;z-index:2}
+.hero-content{max-width:720px;text-align:left;margin-left:0}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(163,255,18,.12);border:1px solid rgba(163,255,18,.35);padding:7px 16px;border-radius:99px;font-size:13px;font-weight:600;color:var(--neon);margin-bottom:22px}
 .eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--neon);box-shadow:0 0 0 0 rgba(163,255,18,.6);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(163,255,18,.6)}70%{box-shadow:0 0 0 10px rgba(163,255,18,0)}100%{box-shadow:0 0 0 0 rgba(163,255,18,0)}}
@@ -100,8 +100,8 @@ nav.main-nav a.active::after{content:"";position:absolute;left:0;bottom:-2px;wid
 .feature-side .feature-card{min-height:168px}
 .feature-side .feature-card h3{font-size:20px}
 
-/* ---------- CATEGORY BADGE ---------- */
-.cat{display:inline-block;padding:5px 14px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.2px;background:rgba(163,255,18,.14);color:var(--neon);border:1px solid rgba(163,255,18,.3)}
+/* ---------- CATEGORY BADGE (solid, dark text) ---------- */
+.cat{display:inline-block;padding:5px 14px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.2px;background:var(--neon);color:#0F1113;border:none}
 
 /* ---------- FILTER CHIPS ---------- */
 .filter-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
@@ -198,18 +198,20 @@ footer.site-footer{background:var(--bg-footer);border-top:1px solid var(--line);
 <!-- HERO (ATF, image bg, no gradient overlay) -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-content">
-    <span class="eyebrow"><span class="pulse"></span> Gen Z Career Hub</span>
-    <h1>Level up your<br>career, <span class="hl">your way.</span></h1>
-    <p class="sub">Panduan praktis buat Gen Z yang mau kerja cerdas, bukan cuma kerja keras. Career, productivity, sampai ngatur duit pertama.</p>
-    <div class="hero-cta">
-      <a href="#" class="btn btn-neon">Mulai baca gratis →</a>
-      <a href="#" class="btn btn-ghost">Tentang genrolla</a>
-    </div>
-    <div class="hero-meta">
-      <div class="stat"><div class="num">120+</div><div class="lbl">Artikel panduan</div></div>
-      <div class="stat"><div class="num">30K</div><div class="lbl">Pembaca / bulan</div></div>
-      <div class="stat"><div class="num">4.9★</div><div class="lbl">Rating pembaca</div></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow"><span class="pulse"></span> Gen Z Career Hub</span>
+      <h1>Level up your<br>career, <span class="hl">your way.</span></h1>
+      <p class="sub">Panduan praktis buat Gen Z yang mau kerja cerdas, bukan cuma kerja keras. Career, productivity, sampai ngatur duit pertama.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-neon">Mulai baca gratis →</a>
+        <a href="#" class="btn btn-ghost">Tentang genrolla</a>
+      </div>
+      <div class="hero-meta">
+        <div class="stat"><div class="num">120+</div><div class="lbl">Artikel panduan</div></div>
+        <div class="stat"><div class="num">30K</div><div class="lbl">Pembaca / bulan</div></div>
+        <div class="stat"><div class="num">4.9★</div><div class="lbl">Rating pembaca</div></div>
+      </div>
     </div>
   </div>
   <div class="hero-scroll">scroll ↓</div>
