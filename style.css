@@ -447,3 +447,10 @@ footer.site-footer{background:var(--bg-footer);border-top:1px solid var(--line);
   .menu-toggle{display:block}
   .logo-text{font-size:22px}
 }
+
+/* About & Full Width page layout */
+.about-content{max-width:760px;margin:0 auto}
+.page-content.fullwidth{max-width:860px;margin:0 auto}
+@media(max-width:768px){
+  .about-content,.page-content.fullwidth{max-width:100%}
+}
