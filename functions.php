@@ -264,15 +264,49 @@ function genrolla_breadcrumb() {
     }
     $items = array( __( 'Home', 'genrolla' ) => home_url( '/' ) );
 
+    // If there is a dedicated Blog (posts) page, use it as hub for post archives
+    $posts_page_id    = get_option( 'page_for_posts' );
+    $posts_page_url   = $posts_page_id ? get_permalink( $posts_page_id ) : '';
+    $posts_page_label = $posts_page_id ? get_the_title( $posts_page_id ) : __( 'Blog', 'genrolla' );
+
     if ( is_category() ) {
-        $cat = get_queried_object();
+        // Blog hub (if exists)
+        if ( $posts_page_url ) {
+            $items[ $posts_page_label ] = $posts_page_url;
+        }
+        // Parent category chain (Home > Blog > Parent > Child)
+        $cat       = get_queried_object();
+        $parents   = array();
+        $parent_id = (int) $cat->category_parent;
+        while ( $parent_id ) {
+            $parent = get_category( $parent_id );
+            if ( ! $parent || is_wp_error( $parent ) ) {
+                break;
+            }
+            $parents[] = $parent;
+            $parent_id = (int) $parent->category_parent;
+        }
+        foreach ( array_reverse( $parents ) as $parent ) {
+            $items[ $parent->name ] = get_category_link( $parent->term_id );
+        }
         $items[ single_cat_title( '', false ) ] = get_category_link( $cat );
     } elseif ( is_tag() ) {
+        if ( $posts_page_url ) {
+            $items[ $posts_page_label ] = $posts_page_url;
+        }
         $tag = get_queried_object();
         $items[ single_tag_title( '', false ) ] = get_tag_link( $tag );
     } elseif ( is_author() ) {
+        if ( $posts_page_url ) {
+            $items[ $posts_page_label ] = $posts_page_url;
+        }
         $author = get_queried_object();
         $items[ get_the_author_meta( 'display_name', $author->ID ) ] = get_author_posts_url( $author->ID );
+    } elseif ( is_date() ) {
+        if ( $posts_page_url ) {
+            $items[ $posts_page_label ] = $posts_page_url;
+        }
+        $items[ get_the_date( 'F Y' ) ] = '';
     } elseif ( is_single() ) {
         $cats = get_the_category();
         if ( ! empty( $cats ) ) {
