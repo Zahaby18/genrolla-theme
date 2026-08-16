@@ -280,3 +280,10 @@ footer.site-footer{background:var(--bg-footer);border-top:1px solid var(--line);
   .about-values{grid-template-columns:1fr}
   .page-hero h1{font-size:34px}
 }
+
+/* Font Awesome tweaks */
+.value-card .icon{color:var(--neon)}
+.social .icon-btn{font-size:15px}
+.announce i{margin-right:6px}
+.hero-cta i,.section-head .see-all i,.page-link i{font-size:12px;margin-left:4px}
+.widget-newsletter .widget-title i{color:#0F1113;margin-right:6px}
