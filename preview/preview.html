@@ -9,143 +9,149 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   GENROLLA — Design System v2 (Gen Z Blog Aesthetic)
-   Palette: Yellow #F7E80A · Soft Pink #FFDEE9 · Cream #FAF6E9
+   GENROLLA — Design System v2.1 (Semi-Dark + Neon Green)
+   Palette: Base #0F1113 · Surface #171A1F · Neon #A3FF12
    ============================================================ */
 :root{
-  --yellow:#F7E80A;
-  --pink:#FFDEE9;
-  --cream:#FAF6E9;
-  --white:#FFFFFF;
-  --ink:#111111;
-  --muted:#5A5A5A;
-  --line:#EFE7D8;
-  --radius:18px;
-  --shadow:0 6px 24px rgba(17,17,17,.06);
-  --shadow-hover:0 12px 36px rgba(17,17,17,.12);
+  --bg:#0F1113;
+  --surface:#171A1F;
+  --surface2:#1E2228;
+  --line:#262B32;
+  --ink:#FFFFFF;
+  --muted:#9AA3AD;
+  --neon:#A3FF12;
+  --neon-dim:#86d40f;
+  --radius:16px;
+  --shadow:0 10px 40px rgba(0,0,0,.45);
+  --shadow-hover:0 16px 52px rgba(0,0,0,.6);
   --font-display:'Space Grotesk',sans-serif;
   --font-body:'Inter',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-body);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-/* ---------- ANNOUNCEMENT BAR ---------- */
-.announce{background:var(--ink);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:500}
-.announce b{color:var(--yellow)}
+/* ---------- ANNOUNCEMENT ---------- */
+.announce{background:var(--neon);color:#0F1113;text-align:center;padding:9px 16px;font-size:13px;font-weight:600}
+.announce a{text-decoration:underline;font-weight:700}
 
 /* ---------- HEADER ---------- */
-header.site-header{background:var(--cream);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line)}
+header.site-header{background:rgba(15,17,19,.85);backdrop-filter:blur(14px);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
 .logo{font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:-.5px}
-.logo .dot{color:var(--yellow);-webkit-text-stroke:1px var(--ink)}
+.logo .dot{color:var(--neon)}
 nav.main-nav{display:flex;gap:30px;align-items:center}
-nav.main-nav a{font-weight:500;font-size:15px;position:relative;padding:4px 0}
-nav.main-nav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--ink);transition:width .25s}
-nav.main-nav a:hover::after{width:100%}
+nav.main-nav a{font-weight:500;font-size:15px;color:var(--muted);position:relative;padding:4px 0;transition:color .2s}
+nav.main-nav a:hover{color:var(--ink)}
+nav.main-nav a.active{color:var(--ink)}
+nav.main-nav a.active::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:2px;background:var(--neon)}
 .header-actions{display:flex;gap:12px;align-items:center}
-.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
-.icon-btn:hover{background:var(--pink);border-color:var(--pink)}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;font-size:16px}
+.icon-btn:hover{border-color:var(--neon);color:var(--neon)}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:99px;font-weight:600;font-size:15px;cursor:pointer;border:none;transition:.2s;font-family:var(--font-body)}
-.btn-dark{background:var(--ink);color:#fff}
-.btn-dark:hover{background:#000;transform:translateY(-2px)}
-.btn-yellow{background:var(--yellow);color:var(--ink)}
-.btn-yellow:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(247,232,10,.5)}
-.menu-toggle{display:none;font-size:24px;background:none;border:none;cursor:pointer}
+.btn-neon{background:var(--neon);color:#0F1113}
+.btn-neon:hover{background:var(--neon-dim);transform:translateY(-2px);box-shadow:0 8px 24px rgba(163,255,18,.35)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--neon);color:var(--neon)}
+.menu-toggle{display:none;font-size:24px;background:none;border:none;color:var(--ink);cursor:pointer}
 
-/* ---------- HERO ---------- */
-.hero{position:relative;padding:72px 0 60px;overflow:hidden}
+/* ---------- HERO (ATF with image bg) ---------- */
+.hero{position:relative;min-height:86vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-image:url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1600&auto=format&fit=crop')}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(15,17,19,.96) 0%,rgba(15,17,19,.82) 45%,rgba(15,17,19,.45) 100%)}
 .hero .container{position:relative;z-index:2}
-.hero-bg{position:absolute;inset:0;z-index:1}
-.hero-blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.6}
-.blob-pink{width:400px;height:400px;background:var(--pink);top:-120px;right:-80px}
-.blob-yellow{width:350px;height:350px;background:var(--yellow);bottom:-140px;left:-100px;opacity:.4}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--line);padding:7px 16px;border-radius:99px;font-size:13px;font-weight:600;margin-bottom:22px}
-.eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--yellow);border:1px solid var(--ink)}
-.hero h1{font-family:var(--font-display);font-size:64px;font-weight:700;line-height:1.05;letter-spacing:-2px;max-width:800px}
-.hero h1 .hl{position:relative;white-space:nowrap}
-.hero h1 .hl::after{content:"";position:absolute;left:-2px;right:-2px;bottom:6px;height:22px;background:var(--yellow);z-index:-1;border-radius:4px}
-.hero p.sub{font-size:19px;color:var(--muted);max-width:560px;margin:22px 0 32px;line-height:1.6}
+.hero-content{max-width:680px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(163,255,18,.12);border:1px solid rgba(163,255,18,.35);padding:7px 16px;border-radius:99px;font-size:13px;font-weight:600;color:var(--neon);margin-bottom:22px}
+.eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--neon);box-shadow:0 0 0 0 rgba(163,255,18,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(163,255,18,.6)}70%{box-shadow:0 0 0 10px rgba(163,255,18,0)}100%{box-shadow:0 0 0 0 rgba(163,255,18,0)}}
+.hero h1{font-family:var(--font-display);font-size:66px;font-weight:700;line-height:1.04;letter-spacing:-2.5px}
+.hero h1 .hl{color:var(--neon)}
+.hero p.sub{font-size:19px;color:var(--muted);max-width:540px;margin:22px 0 34px;line-height:1.65}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.hero-stats{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap}
-.stat .num{font-family:var(--font-display);font-size:30px;font-weight:700}
-.stat .lbl{font-size:13px;color:var(--muted);font-weight:500}
+.hero-meta{display:flex;gap:36px;margin-top:52px;flex-wrap:wrap}
+.hero-meta .num{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--neon)}
+.hero-meta .lbl{font-size:13px;color:var(--muted);font-weight:500}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:12px;letter-spacing:2px;text-transform:uppercase;z-index:2}
 
-/* ---------- SECTION TITLE ---------- */
-.section{padding:56px 0}
-.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;gap:20px;flex-wrap:wrap}
-.section-head h2{font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:-1px}
-.section-head .see-all{font-weight:600;font-size:14px;border-bottom:2px solid var(--ink);padding-bottom:2px}
+/* ---------- SECTION ---------- */
+.section{padding:72px 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;gap:20px;flex-wrap:wrap}
+.section-head .kicker{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--neon);margin-bottom:8px;display:block}
+.section-head h2{font-family:var(--font-display);font-size:36px;font-weight:700;letter-spacing:-1px}
+.section-head .see-all{font-weight:600;font-size:14px;color:var(--muted);border-bottom:2px solid var(--neon);padding-bottom:3px;transition:color .2s}
+.section-head .see-all:hover{color:var(--neon)}
 
 /* ---------- FEATURED ---------- */
-.featured-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
-.feature-card{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--white);box-shadow:var(--shadow);min-height:340px;display:flex;flex-direction:column;justify-content:flex-end}
-.feature-card .thumb{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s}
-.feature-card:hover .thumb{transform:scale(1.05)}
-.feature-card .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(17,17,17,.85))}
-.feature-card .card-body{position:relative;z-index:2;padding:26px;color:#fff}
-.feature-card .card-body h3{font-family:var(--font-display);font-size:26px;font-weight:700;line-height:1.25;margin:12px 0 10px}
-.feature-card .card-body h3 a:hover{color:var(--yellow)}
-.feature-card .meta{display:flex;gap:14px;font-size:13px;opacity:.85;align-items:center}
+.featured-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:24px}
+.feature-card{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--surface);border:1px solid var(--line);min-height:360px;display:flex;flex-direction:column;justify-content:flex-end;transition:border-color .3s,transform .3s}
+.feature-card:hover{border-color:var(--neon);transform:translateY(-4px)}
+.feature-card .thumb{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s}
+.feature-card:hover .thumb{transform:scale(1.06)}
+.feature-card .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,rgba(15,17,19,.92) 100%)}
+.feature-card .card-body{position:relative;z-index:2;padding:28px}
+.feature-card .num{position:absolute;top:20px;right:24px;font-family:var(--font-display);font-size:56px;font-weight:700;color:rgba(255,255,255,.14);line-height:1;z-index:1}
+.feature-card .card-body h3{font-family:var(--font-display);font-size:26px;font-weight:700;line-height:1.25;margin:12px 0 12px}
+.feature-card .card-body h3 a:hover{color:var(--neon)}
+.feature-card .meta{display:flex;gap:12px;font-size:13px;color:var(--muted);align-items:center}
 .feature-side{display:flex;flex-direction:column;gap:24px}
-.feature-side .feature-card{min-height:158px}
-
-/* ---------- FILTER CHIPS ---------- */
-.filter-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
-.chip{padding:8px 18px;border-radius:99px;border:1px solid var(--line);background:var(--white);font-size:14px;font-weight:600;cursor:pointer;transition:.2s}
-.chip:hover{border-color:var(--ink)}
-.chip.active{background:var(--ink);color:var(--yellow);border-color:var(--ink)}
-
-/* ---------- BLOG GRID ---------- */
-.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.post-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
-.post-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover)}
-.post-card .thumb{height:190px;background-size:cover;background-position:center;position:relative}
-.post-card .thumb .cat{position:absolute;top:14px;left:14px}
-.post-card .body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
-.post-card h3{font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.35;margin:12px 0 10px}
-.post-card h3 a:hover{text-decoration:underline;text-decoration-thickness:2px;text-decoration-color:var(--yellow)}
-.post-card .excerpt{font-size:14px;color:var(--muted);margin-bottom:16px;flex:1}
-.post-card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
-.tag{font-size:11px;font-weight:600;background:var(--cream);border:1px solid var(--line);padding:3px 10px;border-radius:99px;color:var(--muted)}
-.post-card .meta{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);padding-top:14px;border-top:1px solid var(--line)}
-.post-card .meta .avatar{width:28px;height:28px;border-radius:50%;background:var(--pink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:var(--ink)}
-.post-card .meta .dot-sep{color:var(--line)}
+.feature-side .feature-card{min-height:168px}
+.feature-side .feature-card h3{font-size:20px}
 
 /* ---------- CATEGORY BADGE ---------- */
-.cat{display:inline-block;padding:5px 13px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.2px}
-.cat.career{background:var(--yellow);color:var(--ink)}
-.cat.productivity{background:var(--pink);color:var(--ink)}
-.cat.finance{background:#D7F9D8;color:#0a3d0a}
-.cat.growth{background:#D8E4FF;color:#16305c}
-.cat.lifestyle{background:#E8D9FF;color:#33165c}
+.cat{display:inline-block;padding:5px 14px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.2px;background:rgba(163,255,18,.14);color:var(--neon);border:1px solid rgba(163,255,18,.3)}
+
+/* ---------- FILTER CHIPS ---------- */
+.filter-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+.chip{padding:9px 20px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:.2s}
+.chip:hover{color:var(--ink);border-color:var(--muted)}
+.chip.active{background:var(--neon);color:#0F1113;border-color:var(--neon)}
+
+/* ---------- POST GRID ---------- */
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.post-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .25s,border-color .25s;display:flex;flex-direction:column}
+.post-card:hover{transform:translateY(-6px);border-color:var(--neon)}
+.post-card .thumb{height:190px;background-size:cover;background-position:center;position:relative}
+.post-card .thumb .cat{position:absolute;top:14px;left:14px}
+.post-card .body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.post-card h3{font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.35;margin:14px 0 10px}
+.post-card h3 a{transition:color .2s}
+.post-card h3 a:hover{color:var(--neon)}
+.post-card .excerpt{font-size:14px;color:var(--muted);margin-bottom:18px;flex:1}
+.post-card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.tag{font-size:11px;font-weight:600;background:transparent;border:1px solid var(--line);padding:3px 11px;border-radius:99px;color:var(--muted);transition:.2s}
+.tag:hover{border-color:var(--neon);color:var(--neon)}
+.post-card .meta{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);padding-top:16px;border-top:1px solid var(--line)}
+.post-card .meta .avatar{width:30px;height:30px;border-radius:50%;background:rgba(163,255,18,.16);border:1px solid rgba(163,255,18,.3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:var(--neon)}
+.post-card .meta .dot-sep{color:var(--line)}
 
 /* ---------- NEWSLETTER ---------- */
-.newsletter{background:var(--ink);border-radius:24px;padding:56px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;position:relative;overflow:hidden}
-.newsletter .nl-blob{position:absolute;width:260px;height:260px;border-radius:50%;background:var(--yellow);filter:blur(60px);opacity:.25;top:-80px;right:-40px}
-.newsletter h2{font-family:var(--font-display);font-size:36px;font-weight:700;color:#fff;letter-spacing:-1px;max-width:480px}
-.newsletter h2 .hl{color:var(--yellow)}
-.newsletter p{color:rgba(255,255,255,.7);margin-top:10px;max-width:440px}
-.nl-form{display:flex;gap:10px;flex:1;min-width:300px;max-width:460px}
-.nl-form input{flex:1;padding:14px 20px;border-radius:99px;border:none;font-size:15px;font-family:var(--font-body);outline:none}
-.nl-form input:focus{box-shadow:0 0 0 3px var(--yellow)}
+.newsletter{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:60px 52px;display:flex;align-items:center;justify-content:space-between;gap:44px;flex-wrap:wrap;position:relative;overflow:hidden}
+.newsletter::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(163,255,18,.16),transparent 70%);top:-120px;right:-60px}
+.newsletter h2{font-family:var(--font-display);font-size:38px;font-weight:700;letter-spacing:-1px;max-width:500px;position:relative}
+.newsletter h2 .hl{color:var(--neon)}
+.newsletter p{color:var(--muted);margin-top:12px;max-width:440px;position:relative}
+.nl-form{display:flex;gap:10px;flex:1;min-width:300px;max-width:460px;position:relative}
+.nl-form input{flex:1;padding:15px 22px;border-radius:99px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:15px;font-family:var(--font-body);outline:none;transition:border-color .2s}
+.nl-form input:focus{border-color:var(--neon)}
+.nl-form input::placeholder{color:var(--muted)}
 
 /* ---------- FOOTER ---------- */
-footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padding:56px 0 0}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;padding-bottom:44px}
-.footer-grid h4{font-family:var(--font-display);font-size:15px;font-weight:700;margin-bottom:16px;letter-spacing:.3px}
+footer.site-footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;padding-bottom:48px}
+.footer-grid h4{font-family:var(--font-display);font-size:14px;font-weight:700;margin-bottom:18px;letter-spacing:1px;text-transform:uppercase;color:var(--ink)}
 .footer-grid ul{list-style:none}
-.footer-grid ul li{margin-bottom:10px}
-.footer-grid ul li a{color:var(--muted);font-size:14px}
-.footer-grid ul li a:hover{color:var(--ink)}
-.footer-grid .about p{color:var(--muted);font-size:14px;margin:16px 0;max-width:300px}
+.footer-grid ul li{margin-bottom:11px}
+.footer-grid ul li a{color:var(--muted);font-size:14px;transition:color .2s}
+.footer-grid ul li a:hover{color:var(--neon)}
+.footer-grid .about p{color:var(--muted);font-size:14px;margin:18px 0;max-width:300px;line-height:1.7}
 .social{display:flex;gap:10px;margin-top:6px}
 .social .icon-btn{width:38px;height:38px}
 .tag-cloud{display:flex;flex-wrap:wrap;gap:8px}
 .footer-bottom{border-top:1px solid var(--line);padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);flex-wrap:wrap;gap:10px}
+.footer-bottom .made b{color:var(--neon)}
 
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:1024px){
@@ -155,26 +161,27 @@ footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padd
 @media(max-width:768px){
   nav.main-nav{display:none}
   .menu-toggle{display:block}
-  .hero h1{font-size:42px;letter-spacing:-1px}
+  .hero{min-height:76vh}
+  .hero h1{font-size:42px;letter-spacing:-1.5px}
   .featured-grid{grid-template-columns:1fr}
   .post-grid{grid-template-columns:1fr}
   .newsletter{padding:40px 28px}
   .footer-grid{grid-template-columns:1fr}
-  .hero-stats{gap:24px}
+  .hero-meta{gap:24px}
 }
 </style>
 </head>
 <body>
 
 <!-- ANNOUNCEMENT -->
-<div class="announce">🔥 <b>New:</b> 5 langkah negosiasi gaji tanpa pengalaman — <a href="#" style="color:#fff;text-decoration:underline">baca gratis</a></div>
+<div class="announce">⚡ <b>New:</b> 5 langkah negosiasi gaji tanpa pengalaman — <a href="#">baca gratis</a></div>
 
 <!-- HEADER -->
 <header class="site-header">
   <div class="container header-inner">
     <a href="#" class="logo">genrolla<span class="dot">.</span></a>
     <nav class="main-nav">
-      <a href="#">Home</a>
+      <a href="#" class="active">Home</a>
       <a href="#">Career</a>
       <a href="#">Productivity</a>
       <a href="#">Finance</a>
@@ -182,68 +189,73 @@ footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padd
     </nav>
     <div class="header-actions">
       <button class="icon-btn" aria-label="Search">🔍</button>
-      <button class="btn btn-dark">Subscribe</button>
+      <button class="btn btn-neon">Subscribe</button>
       <button class="menu-toggle" aria-label="Menu">☰</button>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO (ATF with image) -->
 <section class="hero">
-  <div class="hero-bg">
-    <div class="hero-blob blob-pink"></div>
-    <div class="hero-blob blob-yellow"></div>
-  </div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="container">
-    <span class="eyebrow"><span class="pulse"></span> Gen Z Career Hub</span>
-    <h1>Level up your<br>career, <span class="hl">your way.</span></h1>
-    <p class="sub">Panduan praktis buat Gen Z yang mau kerja cerdas, bukan cuma kerja keras. Career, productivity, sampai ngatur duit pertama.</p>
-    <div class="hero-cta">
-      <a href="#" class="btn btn-yellow">Mulai baca gratis →</a>
-      <a href="#" class="btn btn-dark">Tentang genrolla</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="num">120+</div><div class="lbl">Artikel panduan</div></div>
-      <div class="stat"><div class="num">30K</div><div class="lbl">Pembaca / bulan</div></div>
-      <div class="stat"><div class="num">4.9★</div><div class="lbl">Rating pembaca</div></div>
+    <div class="hero-content">
+      <span class="eyebrow"><span class="pulse"></span> Gen Z Career Hub</span>
+      <h1>Level up your<br>career, <span class="hl">your way.</span></h1>
+      <p class="sub">Panduan praktis buat Gen Z yang mau kerja cerdas, bukan cuma kerja keras. Career, productivity, sampai ngatur duit pertama.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-neon">Mulai baca gratis →</a>
+        <a href="#" class="btn btn-ghost">Tentang genrolla</a>
+      </div>
+      <div class="hero-meta">
+        <div class="stat"><div class="num">120+</div><div class="lbl">Artikel panduan</div></div>
+        <div class="stat"><div class="num">30K</div><div class="lbl">Pembaca / bulan</div></div>
+        <div class="stat"><div class="num">4.9★</div><div class="lbl">Rating pembaca</div></div>
+      </div>
     </div>
   </div>
+  <div class="hero-scroll">scroll ↓</div>
 </section>
 
 <!-- FEATURED -->
-<section class="section" style="padding-top:16px">
+<section class="section" style="padding-top:32px">
   <div class="container">
     <div class="section-head">
-      <h2>🔥 Lagi ramai dibaca</h2>
+      <div>
+        <span class="kicker">Trending</span>
+        <h2>Lagi ramai dibaca</h2>
+      </div>
       <a href="#" class="see-all">Lihat semua →</a>
     </div>
     <div class="featured-grid">
-      <!-- Big featured -->
       <article class="feature-card">
-        <div class="thumb" style="background-image:linear-gradient(135deg,#FFDEE9,#F7E80A)"></div>
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1560264280-88b68371db39?q=80&w=1200&auto=format&fit=crop')"></div>
         <div class="overlay"></div>
+        <span class="num">01</span>
         <div class="card-body">
-          <span class="cat career">Career</span>
+          <span class="cat">Career</span>
           <h3><a href="#">5 Langkah Negosiasi Gaji buat Fresh Graduate yang Baru Diterima</a></h3>
           <div class="meta"><span>7 min read</span><span>·</span><span>2 hari lalu</span></div>
         </div>
       </article>
-      <!-- Side small -->
       <div class="feature-side">
         <article class="feature-card">
-          <div class="thumb" style="background-image:linear-gradient(135deg,#D8E4FF,#F7E80A)"></div>
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop')"></div>
           <div class="overlay"></div>
+          <span class="num">02</span>
           <div class="card-body">
-            <span class="cat finance">Finance</span>
+            <span class="cat">Finance</span>
             <h3><a href="#">Gaji Pertama? Begini Cara Ngatur Duitnya Biar Nggak Boncos</a></h3>
             <div class="meta"><span>5 min read</span><span>·</span><span>4 hari lalu</span></div>
           </div>
         </article>
         <article class="feature-card">
-          <div class="thumb" style="background-image:linear-gradient(135deg,#E8D9FF,#FFDEE9)"></div>
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?q=80&w=1200&auto=format&fit=crop')"></div>
           <div class="overlay"></div>
+          <span class="num">03</span>
           <div class="card-body">
-            <span class="cat productivity">Productivity</span>
+            <span class="cat">Productivity</span>
             <h3><a href="#">Deep Work buat Gen Z: Fokus 2 Jam Lebih Nendang dari 8 Jam</a></h3>
             <div class="meta"><span>6 min read</span><span>·</span><span>1 minggu lalu</span></div>
           </div>
@@ -257,7 +269,10 @@ footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padd
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <h2>Artikel terbaru</h2>
+      <div>
+        <span class="kicker">Fresh</span>
+        <h2>Artikel terbaru</h2>
+      </div>
       <a href="#" class="see-all">Semua artikel →</a>
     </div>
     <div class="filter-chips">
@@ -270,8 +285,8 @@ footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padd
     <div class="post-grid">
 
       <article class="post-card">
-        <div class="thumb" style="background-image:linear-gradient(135deg,#F7E80A,#FFDEE9)">
-          <span class="cat career">Career</span>
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop')">
+          <span class="cat">Career</span>
         </div>
         <div class="body">
           <h3><a href="#">CV Gen Z yang Bikin HR Berhenti Scroll: 7 Elemen Wajib</a></h3>
@@ -282,8 +297,8 @@ footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padd
       </article>
 
       <article class="post-card">
-        <div class="thumb" style="background-image:linear-gradient(135deg,#D7F9D8,#F7E80A)">
-          <span class="cat finance">Finance</span>
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=800&auto=format&fit=crop')">
+          <span class="cat">Finance</span>
         </div>
         <div class="body">
           <h3><a href="#">Investasi Reksadana Rp100 Ribu/Bulan: Mulai dari Mana?</a></h3>
@@ -294,8 +309,8 @@ footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padd
       </article>
 
       <article class="post-card">
-        <div class="thumb" style="background-image:linear-gradient(135deg,#D8E4FF,#FFDEE9)">
-          <span class="cat productivity">Productivity</span>
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=800&auto=format&fit=crop')">
+          <span class="cat">Productivity</span>
         </div>
         <div class="body">
           <h3><a href="#">Notion vs Google Keep: Mana yang Cocok buat Anak Kuliah?</a></h3>
@@ -306,8 +321,8 @@ footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padd
       </article>
 
       <article class="post-card">
-        <div class="thumb" style="background-image:linear-gradient(135deg,#E8D9FF,#D8E4FF)">
-          <span class="cat growth">Self-Growth</span>
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop')">
+          <span class="cat">Self-Growth</span>
         </div>
         <div class="body">
           <h3><a href="#">Skill yang Paling Dicari di 2026 (Bukan Coding!)</a></h3>
@@ -318,8 +333,8 @@ footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padd
       </article>
 
       <article class="post-card">
-        <div class="thumb" style="background-image:linear-gradient(135deg,#FFDEE9,#F7E80A)">
-          <span class="cat lifestyle">Lifestyle</span>
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=800&auto=format&fit=crop')">
+          <span class="cat">Lifestyle</span>
         </div>
         <div class="body">
           <h3><a href="#">Burnout di Usia 22: Tanda, Penyebab, dan Cara Pulih</a></h3>
@@ -330,8 +345,8 @@ footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padd
       </article>
 
       <article class="post-card">
-        <div class="thumb" style="background-image:linear-gradient(135deg,#F7E80A,#D7F9D8)">
-          <span class="cat career">Career</span>
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop')">
+          <span class="cat">Career</span>
         </div>
         <div class="body">
           <h3><a href="#">Magang vs Freelance: Mana yang Lebih Cepat Bikin CV Gemuk?</a></h3>
@@ -349,14 +364,13 @@ footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padd
 <section class="section" style="padding-top:8px">
   <div class="container">
     <div class="newsletter">
-      <div class="nl-blob"></div>
       <div>
         <h2>Jangan ketinggalan <span class="hl">insight karier</span> tiap minggu.</h2>
         <p>Join 30,000+ pembaca yang dapet tips karier & finansial langsung ke inbox. Gratis, unsubscribe kapan aja.</p>
       </div>
       <form class="nl-form" onsubmit="return false">
         <input type="email" placeholder="Email kamu..." required>
-        <button class="btn btn-yellow" type="submit">Subscribe</button>
+        <button class="btn btn-neon" type="submit">Subscribe</button>
       </form>
     </div>
   </div>
@@ -411,7 +425,7 @@ footer.site-footer{background:var(--cream);border-top:1px solid var(--line);padd
     </div>
     <div class="footer-bottom">
       <span>© 2026 genrolla. All rights reserved.</span>
-      <span>Dibuat dengan ☕ & 💛 di Indonesia</span>
+      <span class="made">Dibuat dengan ☕ & <b>neon</b> di Indonesia</span>
     </div>
   </div>
 </footer>
