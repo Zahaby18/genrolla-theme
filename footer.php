@@ -3,8 +3,8 @@
         <div class="container">
             <div class="newsletter">
                 <div>
-                    <h2><?php echo esc_html( get_theme_mod( 'genrolla_newsletter_title', __( 'Jangan ketinggalan insight karier tiap minggu.', 'genrolla' ) ) ); ?></h2>
-                    <p><?php echo esc_html( get_theme_mod( 'genrolla_newsletter_text', __( 'Join 30,000+ pembaca yang dapet tips karier & finansial langsung ke inbox. Gratis.', 'genrolla' ) ) ); ?></p>
+                    <h2><?php echo esc_html( get_theme_mod( 'genrolla_newsletter_title', __( 'Don\'t miss weekly career insights.', 'genrolla' ) ) ); ?></h2>
+                    <p><?php echo esc_html( get_theme_mod( 'genrolla_newsletter_text', __( 'Join 30,000+ readers getting career & finance tips straight to their inbox. Free.', 'genrolla' ) ) ); ?></p>
                 </div>
                 <?php
                 $shortcode = get_theme_mod( 'genrolla_newsletter_shortcode', '' );
@@ -14,7 +14,7 @@
                 } else {
                     ?>
                     <form class="nl-form" action="<?php echo esc_url( $action ? $action : '#' ); ?>" method="post">
-                        <input type="email" name="email" placeholder="<?php esc_attr_e( 'Email kamu...', 'genrolla' ); ?>" required>
+                        <input type="email" name="email" placeholder="<?php esc_attr_e( 'Your email...', 'genrolla' ); ?>" required>
                         <button class="btn btn-neon" type="submit"><?php esc_html_e( 'Subscribe', 'genrolla' ); ?></button>
                     </form>
                     <?php
@@ -56,7 +56,7 @@
 
             <div class="footer-bottom">
                 <span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>. <?php echo esc_html( get_theme_mod( 'genrolla_copyright', __( 'All rights reserved.', 'genrolla' ) ) ); ?></span>
-                <span class="made"><?php printf( esc_html__( 'Dibuat dengan %s di Indonesia', 'genrolla' ), '<i class="fa-solid fa-mug-hot"></i> & <b>neon</b>' ); ?></span>
+                <span class="made"><?php printf( esc_html__( 'Made with %s', 'genrolla' ), '<i class="fa-solid fa-mug-hot"></i> & <b>neon</b>' ); ?></span>
             </div>
         </div>
     </footer>

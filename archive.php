@@ -56,7 +56,7 @@ $term = get_queried_object();
         <div class="count">
             <?php
             global $wp_query;
-            printf( esc_html__( 'Menampilkan %d artikel', 'genrolla' ), (int) $wp_query->found_posts );
+            printf( esc_html__( 'Showing %d posts', 'genrolla' ), (int) $wp_query->found_posts );
             ?>
         </div>
     </div>
@@ -84,7 +84,7 @@ $term = get_queried_object();
             ?>
         <?php else : ?>
             <div class="no-posts">
-                <p><?php esc_html_e( 'Belum ada artikel di sini.', 'genrolla' ); ?></p>
+                <p><?php esc_html_e( 'No posts here yet.', 'genrolla' ); ?></p>
             </div>
         <?php endif; ?>
     </div>

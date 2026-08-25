@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: About
- * Description: Halaman About — hero header + konten full width (tanpa sidebar). Cocok untuk halaman "Tentang Kami".
+ * Description: About page — hero header + full-width content (no sidebar). Perfect for an "About Us" page.
  *
  * @package Genrolla
  */
@@ -15,7 +15,7 @@ while ( have_posts() ) :
     <div class="page-hero">
         <div class="container">
             <?php genrolla_breadcrumb(); ?>
-            <span class="kicker"><?php esc_html_e( 'Tentang kami', 'genrolla' ); ?></span>
+            <span class="kicker"><?php esc_html_e( 'About us', 'genrolla' ); ?></span>
             <h1><?php the_title(); ?></h1>
             <?php if ( has_excerpt() ) : ?>
                 <div class="desc"><?php echo esc_html( get_the_excerpt() ); ?></div>

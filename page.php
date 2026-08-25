@@ -14,7 +14,7 @@ while ( have_posts() ) :
     <div class="page-hero">
         <div class="container">
             <?php genrolla_breadcrumb(); ?>
-            <span class="kicker"><?php esc_html_e( 'Halaman', 'genrolla' ); ?></span>
+            <span class="kicker"><?php esc_html_e( 'Page', 'genrolla' ); ?></span>
             <h1><?php the_title(); ?></h1>
             <?php if ( has_excerpt() ) : ?>
                 <div class="desc"><?php echo esc_html( get_the_excerpt() ); ?></div>

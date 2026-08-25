@@ -15,7 +15,7 @@ if ( post_password_required() ) {
         <h3 class="comments-title">
             <?php
             $n = get_comments_number();
-            printf( _n( '1 komentar', '%d komentar', $n, 'genrolla' ), number_format_i18n( $n ) );
+            printf( _n( '1 comment', '%d comments', $n, 'genrolla' ), number_format_i18n( $n ) );
             ?>
         </h3>
         <ol class="comment-list">

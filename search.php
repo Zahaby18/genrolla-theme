@@ -11,10 +11,10 @@ get_header();
 <div class="page-hero">
     <div class="container">
         <?php genrolla_breadcrumb(); ?>
-        <span class="kicker"><?php esc_html_e( 'Pencarian', 'genrolla' ); ?></span>
-        <h1><?php printf( esc_html__( 'Hasil untuk: %s', 'genrolla' ), '<span class="hl">' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
+        <span class="kicker"><?php esc_html_e( 'Search', 'genrolla' ); ?></span>
+        <h1><?php printf( esc_html__( 'Results for: %s', 'genrolla' ), '<span class="hl">' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
         <?php if ( have_posts() ) : ?>
-            <div class="count"><?php printf( esc_html__( '%d artikel ditemukan', 'genrolla' ), (int) $GLOBALS['wp_query']->found_posts ); ?></div>
+            <div class="count"><?php printf( esc_html__( '%d posts found', 'genrolla' ), (int) $GLOBALS['wp_query']->found_posts ); ?></div>
         <?php endif; ?>
     </div>
 </div>
@@ -39,7 +39,7 @@ get_header();
             ?>
         <?php else : ?>
             <div class="no-posts">
-                <p><?php esc_html_e( 'Nggak ketemu nih. Coba keyword lain.', 'genrolla' ); ?></p>
+                <p><?php esc_html_e( 'Nothing found. Try different keywords.', 'genrolla' ); ?></p>
                 <?php get_search_form(); ?>
             </div>
         <?php endif; ?>

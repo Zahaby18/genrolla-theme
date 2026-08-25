@@ -129,14 +129,14 @@ function genrolla_customize_register( $wp_customize ) {
         'label' => esc_html__( 'Hero Title', 'genrolla' ), 'section' => 'genrolla_hero', 'type' => 'textarea',
     ) );
     $wp_customize->add_setting( 'genrolla_hero_subtitle', array(
-        'default' => esc_html__( 'Panduan praktis buat Gen Z yang mau kerja cerdas, bukan cuma kerja keras.', 'genrolla' ),
+        'default' => esc_html__( 'Practical guides for Gen Z who want to work smart, not just work hard.', 'genrolla' ),
         'sanitize_callback' => 'sanitize_textarea_field',
     ) );
     $wp_customize->add_control( 'genrolla_hero_subtitle', array(
         'label' => esc_html__( 'Hero Subtitle', 'genrolla' ), 'section' => 'genrolla_hero', 'type' => 'textarea',
     ) );
     $wp_customize->add_setting( 'genrolla_hero_btn_text', array(
-        'default' => esc_html__( 'Mulai baca gratis', 'genrolla' ), 'sanitize_callback' => 'sanitize_text_field',
+        'default' => esc_html__( 'Start reading free', 'genrolla' ), 'sanitize_callback' => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'genrolla_hero_btn_text', array(
         'label' => esc_html__( 'Hero Button Text', 'genrolla' ), 'section' => 'genrolla_hero', 'type' => 'text',
@@ -153,13 +153,13 @@ function genrolla_customize_register( $wp_customize ) {
         'title' => esc_html__( 'Newsletter Settings', 'genrolla' ), 'priority' => 35,
     ) );
     $wp_customize->add_setting( 'genrolla_newsletter_title', array(
-        'default' => esc_html__( 'Jangan ketinggalan insight karier tiap minggu.', 'genrolla' ), 'sanitize_callback' => 'sanitize_text_field',
+        'default' => esc_html__( 'Don\'t miss weekly career insights.', 'genrolla' ), 'sanitize_callback' => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'genrolla_newsletter_title', array(
         'label' => esc_html__( 'Newsletter Title', 'genrolla' ), 'section' => 'genrolla_newsletter', 'type' => 'text',
     ) );
     $wp_customize->add_setting( 'genrolla_newsletter_text', array(
-        'default' => esc_html__( 'Join 30,000+ pembaca yang dapet tips karier & finansial langsung ke inbox. Gratis.', 'genrolla' ),
+        'default' => esc_html__( 'Join 30,000+ readers getting career & finance tips straight to their inbox. Free.', 'genrolla' ),
         'sanitize_callback' => 'sanitize_textarea_field',
     ) );
     $wp_customize->add_control( 'genrolla_newsletter_text', array(
@@ -169,14 +169,14 @@ function genrolla_customize_register( $wp_customize ) {
         'default' => '', 'sanitize_callback' => 'esc_url_raw',
     ) );
     $wp_customize->add_control( 'genrolla_newsletter_form_action', array(
-        'label' => esc_html__( 'Form action URL (MC4WP/ConvertKit endpoint — kosongkan kalau pakai plugin shortcode)', 'genrolla' ),
+        'label' => esc_html__( 'Form action URL (MC4WP/ConvertKit endpoint — leave empty if using plugin shortcode)', 'genrolla' ),
         'section' => 'genrolla_newsletter', 'type' => 'url',
     ) );
     $wp_customize->add_setting( 'genrolla_newsletter_shortcode', array(
         'default' => '', 'sanitize_callback' => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'genrolla_newsletter_shortcode', array(
-        'label' => esc_html__( 'Newsletter Plugin Shortcode (mis. [mc4wp_form id="1"])', 'genrolla' ),
+        'label' => esc_html__( 'Newsletter Plugin Shortcode (e.g. [mc4wp_form id="1"])', 'genrolla' ),
         'section' => 'genrolla_newsletter', 'type' => 'text',
     ) );
 
@@ -462,15 +462,10 @@ function genrolla_recommended_plugins_notice() {
     }
     ?>
     <div class="notice notice-info is-dismissible genrolla-plugin-notice">
-        <p style="font-weight:600"><?php esc_html_e( 'Genrolla Theme — Recommended plugins (optional):', 'genrolla' ); ?></p>
-        <p style="margin-bottom:8px"><?php esc_html_e( 'Theme sudah SEO-ready (schema, breadcrumb, ToC). Plugin ini untuk fitur lanjutan:', 'genrolla' ); ?></p>
-        <ul style="list-style:disc;padding-left:20px;margin:0 0 10px">
-            <li><b>Yoast SEO / Rank Math</b> — meta description & sitemap</li>
-            <li><b>Classic Editor</b> — kalau mau editor lama (theme sudah support keduanya)</li>
-            <li><b>MC4WP / ConvertKit</b> — supaya form newsletter beneran kirim email</li>
-        </ul>
+        <p style="font-weight:600"><?php esc_html_e( 'Genrolla Theme — Recommended plugin: Yoast SEO', 'genrolla' ); ?></p>
+        <p style="margin-bottom:8px"><?php esc_html_e( 'Yoast SEO adds meta descriptions, XML sitemaps, and advanced SEO controls. The theme already includes schema markup, breadcrumbs, and a table of contents, so Yoast is optional but recommended for full SEO power.', 'genrolla' ); ?></p>
         <p style="margin:0">
-            <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=search&s=classic+editor' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install recommended', 'genrolla' ); ?></a>
+            <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=search&s=yoast+seo' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Yoast SEO', 'genrolla' ); ?></a>
             <a href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin.php?genrolla_dismiss_plugins=1' ), 'genrolla_dismiss' ) ); ?>" style="margin-left:10px"><?php esc_html_e( 'Dismiss', 'genrolla' ); ?></a>
         </p>
     </div>

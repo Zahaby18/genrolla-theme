@@ -2,83 +2,81 @@
 
 **Version:** 2.0.0 · **License:** GPL v2+
 
-Fast, SEO-friendly, Gen Z blog theme. Semi-dark design with neon green accent. Dibuat untuk blog, affiliate marketing, dan AdSense monetization.
+A fast, SEO-friendly, Gen Z blog theme. Semi-dark design with a neon green accent. Built for blogs, affiliate marketing, and AdSense monetization.
 
-## ✨ Fitur
+## ✨ Features
 
-- 🎨 **Design Gen Z** — semi-dark `#0F1113` + neon green `#A3FF12`, font Space Grotesk + Inter
-- 📱 **Responsive** — mobile, tablet, desktop
-- 🔍 **SEO-Ready**:
+- 🎨 **Gen Z design** — semi-dark `#0F1113` + neon green `#A3FF12`, Space Grotesk + Inter fonts
+- 📱 **Fully responsive** — mobile, tablet, desktop
+- 🔍 **SEO-ready**:
   - Schema.org Article + BreadcrumbList (JSON-LD)
-  - Breadcrumb visual + navigasi
-  - **Table of Contents** otomatis (dari heading H2)
-  - Author box + meta lengkap (tanggal, read time, comments)
-  - H1 hierarchy benar: front-page → archive → single
-- 🚀 **One-Click Demo Import** — `Appearance → Import Demo` → 12 artikel + 5 kategori + 20 tag + featured images + komentar (sekali klik, bisa di-reset)
-- 🔥 **Trending section** — query dari post dengan komentar terbanyak
-- 🖼️ **Card image fallback** — kalau post nggak punya gambar, tampil gradient + icon
-- 📬 **Newsletter section** — support shortcode plugin (MC4WP/ConvertKit) atau form action URL
-- ⚙️ **Customizer** — warna (bg + accent), hero (image/title/subtitle/button), newsletter, copyright, social links
-- 🧩 **Gutenberg & Classic Editor** compatible (tanpa plugin page builder)
+  - Visual breadcrumbs + navigation hierarchy
+  - **Auto Table of Contents** (from H2 headings)
+  - Author box + full meta (date, read time, comments)
+  - Correct H1 hierarchy: front page → archive → single
+- 🚀 **One-click demo import** — `Appearance → Import Demo` → 12 posts + 6 categories + 20 tags + featured images + comments (resettable)
+- 🔥 **Trending section** — most-commented posts first, falls back to the **Highlight** category, then latest
+- 🖼️ **Card image fallback** — gradient + icon when a post has no image
+- 📬 **Newsletter section** — supports plugin shortcodes (MC4WP/ConvertKit) or a form action URL
+- ⚙️ **Customizer** — colors (background + accent), hero (image/title/subtitle/button), newsletter, copyright
+- 🧩 **Gutenberg & Classic Editor compatible** — no page builder required
 
 ## 📦 Install
 
-1. Download repo ini → zip
+1. Download this repo → zip
 2. WordPress Admin → Appearance → Themes → Add New → Upload Theme
 3. Activate
-4. **Appearance → Import Demo** → klik tombol (opsional, buat lihat contoh konten)
-5. **Appearance → Customize** → set logo, warna, hero
-6. **Appearance → Menus** → bikin Primary & Footer menu
-7. **Appearance → Widgets** → isi Sidebar & Footer (opsional)
+4. **Appearance → Import Demo** → click the button (optional, for sample content)
+5. **Appearance → Customize** → set logo, colors, hero
+6. **Appearance → Menus** → create Primary & Footer menus
+7. **Appearance → Widgets** → fill Sidebar & Footer (optional)
 
-## 🗂️ Struktur
+## 🗂️ Structure
 
 ```
 genrolla/
-├── style.css              # Metadata + semua CSS
-├── functions.php          # Setup, customizer, SEO helpers, trending, notice
+├── style.css              # Metadata + all CSS
+├── functions.php          # Setup, customizer, SEO helpers, trending
 ├── header.php / footer.php / sidebar.php
 ├── front-page.php         # Home: hero + trending + latest
 ├── index.php              # Blog index fallback
 ├── archive.php            # Category/tag/author/date
 ├── single.php             # Single post + sidebar + ToC + author box
-├── page.php               # About/Contact
+├── page.php               # Default page
+├── template-about.php     # About page template (full width)
+├── template-full-width.php# Full-width page template
 ├── search.php / 404.php / comments.php / searchform.php
 ├── inc/demo-import.php    # One-click demo content importer
-├── template-parts/
-│   ├── card.php           # Post card (dengan fallback image)
-│   └── author-box.php
-├── assets/js/main.js      # Menu, search drawer, ToC generator
+├── template-parts/        # card.php + author-box.php
+├── assets/                # main.js, featured/
 └── screenshot.png
 ```
 
-## ⚙️ Pengaturan
+## ⚙️ Settings
 
-| Fitur | Lokasi |
+| Feature | Location |
 |---|---|
-| Logo, warna, hero, newsletter, copyright | Appearance → Customize |
-| Menu | Appearance → Menus |
+| Logo, colors, hero, newsletter, copyright | Appearance → Customize |
+| Menus | Appearance → Menus |
 | Sidebar & Footer widgets | Appearance → Widgets |
 | Demo content | Appearance → Import Demo |
-| Recommended plugins (opsional) | Yoast/Rank Math, MC4WP/ConvertKit, Classic Editor |
+| Recommended plugin | Yoast SEO (optional, for advanced SEO) |
 
 ## 💬 Newsletter
 
-Theme menyediakan section + form HTML. Untuk beneran kirim email:
-- Install **MC4WP** (Mailchimp) atau plugin ConvertKit
-- Masukkan shortcode di **Customize → Newsletter Settings → Plugin Shortcode**
-- Atau isi **Form action URL** dengan endpoint ESP lu
+The theme provides the section + HTML form. To actually send emails:
+- Install **MC4WP** (Mailchimp) or a ConvertKit plugin
+- Paste its shortcode in **Customize → Newsletter Settings → Plugin Shortcode**
+- Or fill the **Form action URL** with your ESP endpoint
 
 ## 📝 Changelog
 
 ### 2.0.0
-- Redesign total: semi-dark + neon green (Gen Z aesthetic)
+- Full redesign: semi-dark + neon green (Gen Z aesthetic)
 - One-click demo importer (12 posts, categories, tags, images, comments)
 - SEO: schema, breadcrumb, ToC, author box
-- Trending section (comment count)
+- Trending section (comment count → Highlight fallback)
 - Card image fallback
 - Font Awesome icons (no emoji)
 - Responsive + mobile menu + search drawer
-
-### 1.0.0
-- Initial release (classic light blog theme)
+- English UI strings

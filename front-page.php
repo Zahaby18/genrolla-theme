@@ -18,24 +18,24 @@ $hero_style = $hero_img ? 'background-image:url(' . esc_url( $hero_img ) . ')' :
         <div class="hero-content">
             <span class="eyebrow"><span class="pulse"></span> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
             <h1><?php echo wp_kses_post( get_theme_mod( 'genrolla_hero_title', __( 'Level up your career, your way.', 'genrolla' ) ) ); ?></h1>
-            <p class="sub"><?php echo esc_html( get_theme_mod( 'genrolla_hero_subtitle', __( 'Panduan praktis buat Gen Z yang mau kerja cerdas, bukan cuma kerja keras.', 'genrolla' ) ) ); ?></p>
+            <p class="sub"><?php echo esc_html( get_theme_mod( 'genrolla_hero_subtitle', __( 'Practical guides for Gen Z who want to work smart, not just work hard.', 'genrolla' ) ) ); ?></p>
             <div class="hero-cta">
                 <?php
                 $btn_url  = get_theme_mod( 'genrolla_hero_btn_url', '' );
-                $btn_text = get_theme_mod( 'genrolla_hero_btn_text', __( 'Mulai baca gratis', 'genrolla' ) );
+                $btn_text = get_theme_mod( 'genrolla_hero_btn_text', __( 'Start reading free', 'genrolla' ) );
                 if ( ! $btn_url ) {
                     $btn_url = '#genrolla-posts';
                 }
                 ?>
                 <a href="<?php echo esc_url( $btn_url ); ?>" class="btn btn-neon"><?php echo esc_html( $btn_text ); ?> <i class="fa-solid fa-arrow-right"></i></a>
                 <?php if ( get_page_by_path( 'about' ) ) : ?>
-                    <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'about' ) ) ); ?>" class="btn btn-ghost"><?php esc_html_e( 'Tentang genrolla', 'genrolla' ); ?></a>
+                    <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'about' ) ) ); ?>" class="btn btn-ghost"><?php esc_html_e( 'About genrolla', 'genrolla' ); ?></a>
                 <?php endif; ?>
             </div>
             <div class="hero-meta">
-                <div class="stat"><div class="num"><?php echo esc_html( wp_count_posts()->publish ); ?>+</div><div class="lbl"><?php esc_html_e( 'Artikel panduan', 'genrolla' ); ?></div></div>
-                <div class="stat"><div class="num">30K</div><div class="lbl"><?php esc_html_e( 'Pembaca / bulan', 'genrolla' ); ?></div></div>
-                <div class="stat"><div class="num">4.9 <i class="fa-solid fa-star"></i></div><div class="lbl"><?php esc_html_e( 'Rating pembaca', 'genrolla' ); ?></div></div>
+                <div class="stat"><div class="num"><?php echo esc_html( wp_count_posts()->publish ); ?>+</div><div class="lbl"><?php esc_html_e( 'Articles', 'genrolla' ); ?></div></div>
+                <div class="stat"><div class="num">30K</div><div class="lbl"><?php esc_html_e( 'Readers / month', 'genrolla' ); ?></div></div>
+                <div class="stat"><div class="num">4.9 <i class="fa-solid fa-star"></i></div><div class="lbl"><?php esc_html_e( 'Reader rating', 'genrolla' ); ?></div></div>
             </div>
         </div>
     </div>
@@ -52,9 +52,9 @@ if ( ! empty( $trending ) ) :
             <div class="section-head">
                 <div>
                     <span class="kicker"><?php esc_html_e( 'Trending', 'genrolla' ); ?></span>
-                    <h2><?php esc_html_e( 'Lagi ramai dibaca', 'genrolla' ); ?></h2>
+                    <h2><?php esc_html_e( 'Trending now', 'genrolla' ); ?></h2>
                 </div>
-                <a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/' ) ); ?>" class="see-all"><?php esc_html_e( 'Lihat semua', 'genrolla' ); ?> <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/' ) ); ?>" class="see-all"><?php esc_html_e( 'View all', 'genrolla' ); ?> <i class="fa-solid fa-arrow-right"></i></a>
             </div>
             <div class="featured-grid">
                 <?php
@@ -118,9 +118,9 @@ if ( ! empty( $trending ) ) :
         <div class="section-head">
             <div>
                 <span class="kicker"><?php esc_html_e( 'Fresh', 'genrolla' ); ?></span>
-                <h2><?php esc_html_e( 'Artikel terbaru', 'genrolla' ); ?></h2>
+                <h2><?php esc_html_e( 'Latest articles', 'genrolla' ); ?></h2>
             </div>
-            <a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/' ) ); ?>" class="see-all"><?php esc_html_e( 'Semua artikel', 'genrolla' ); ?> <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/' ) ); ?>" class="see-all"><?php esc_html_e( 'All articles', 'genrolla' ); ?> <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <?php
@@ -155,7 +155,7 @@ if ( ! empty( $trending ) ) :
             </div>
         <?php else : ?>
             <div class="no-posts">
-                <p><?php esc_html_e( 'Belum ada artikel. Gunakan menu "Import Demo Content" di Appearance untuk generate contoh artikel.', 'genrolla' ); ?></p>
+                <p><?php esc_html_e( 'No posts yet. Use the "Import Demo Content" menu under Appearance to generate sample articles.', 'genrolla' ); ?></p>
             </div>
         <?php endif; ?>
     </div>

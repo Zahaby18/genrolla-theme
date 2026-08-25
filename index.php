@@ -12,7 +12,7 @@ get_header();
     <div class="container">
         <?php genrolla_breadcrumb(); ?>
         <span class="kicker"><?php esc_html_e( 'Blog', 'genrolla' ); ?></span>
-        <h1><?php esc_html_e( 'Artikel terbaru', 'genrolla' ); ?></h1>
+        <h1><?php esc_html_e( 'Latest articles', 'genrolla' ); ?></h1>
     </div>
 </div>
 
@@ -36,7 +36,7 @@ get_header();
             ?>
         <?php else : ?>
             <div class="no-posts">
-                <p><?php esc_html_e( 'Belum ada artikel.', 'genrolla' ); ?></p>
+                <p><?php esc_html_e( 'No posts yet.', 'genrolla' ); ?></p>
             </div>
         <?php endif; ?>
     </div>

@@ -64,13 +64,13 @@ get_header();
                         <div class="post-nav">
                             <?php if ( $prev ) : ?>
                                 <a href="<?php echo esc_url( get_permalink( $prev ) ); ?>">
-                                    <span class="nav-lbl"><i class="fa-solid fa-arrow-left"></i> <?php esc_html_e( 'Sebelumnya', 'genrolla' ); ?></span>
+                                    <span class="nav-lbl"><i class="fa-solid fa-arrow-left"></i> <?php esc_html_e( 'Previous', 'genrolla' ); ?></span>
                                     <span class="nav-title"><?php echo esc_html( get_the_title( $prev ) ); ?></span>
                                 </a>
                             <?php endif; ?>
                             <?php if ( $next ) : ?>
                                 <a href="<?php echo esc_url( get_permalink( $next ) ); ?>" style="text-align:right">
-                                    <span class="nav-lbl"><?php esc_html_e( 'Selanjutnya', 'genrolla' ); ?> <i class="fa-solid fa-arrow-right"></i></span>
+                                    <span class="nav-lbl"><?php esc_html_e( 'Next', 'genrolla' ); ?> <i class="fa-solid fa-arrow-right"></i></span>
                                     <span class="nav-title"><?php echo esc_html( get_the_title( $next ) ); ?></span>
                                 </a>
                             <?php endif; ?>
