@@ -56,7 +56,10 @@
 
             <div class="footer-bottom">
                 <span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>. <?php echo esc_html( get_theme_mod( 'genrolla_copyright', __( 'All rights reserved.', 'genrolla' ) ) ); ?></span>
-                <span class="made"><?php printf( esc_html__( 'Made with %s', 'genrolla' ), '<i class="fa-solid fa-mug-hot"></i> & <b>neon</b>' ); ?></span>
+                <?php $credit = get_theme_mod( 'genrolla_footer_credit', '' ); ?>
+                <?php if ( $credit ) : ?>
+                    <span class="made"><?php echo wp_kses_post( $credit ); ?></span>
+                <?php endif; ?>
             </div>
         </div>
     </footer>

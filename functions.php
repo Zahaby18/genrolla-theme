@@ -16,6 +16,8 @@ define( 'GENROLLA_VERSION', '2.0.0' );
  * THEME SETUP
  * ============================================================ */
 function genrolla_setup() {
+    load_theme_textdomain( 'genrolla', get_template_directory() . '/languages' );
+
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
@@ -84,6 +86,11 @@ function genrolla_scripts() {
     wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', array(), '6.5.2' );
     // Theme CSS
     wp_enqueue_style( 'genrolla-style', get_stylesheet_uri(), array( 'genrolla-fonts', 'font-awesome' ), GENROLLA_VERSION );
+
+    // RTL support
+    if ( is_rtl() ) {
+        wp_enqueue_style( 'genrolla-rtl', get_template_directory_uri() . '/rtl.css', array( 'genrolla-style' ), GENROLLA_VERSION );
+    }
     // Theme JS
     wp_enqueue_script( 'genrolla-main', get_template_directory_uri() . '/assets/js/main.js', array(), GENROLLA_VERSION, true );
 
@@ -186,6 +193,12 @@ function genrolla_customize_register( $wp_customize ) {
     ) );
     $wp_customize->add_control( 'genrolla_copyright', array(
         'label' => esc_html__( 'Footer Copyright Text', 'genrolla' ), 'section' => 'title_tagline', 'type' => 'text',
+    ) );
+    $wp_customize->add_setting( 'genrolla_footer_credit', array(
+        'default' => '', 'sanitize_callback' => 'wp_kses_post',
+    ) );
+    $wp_customize->add_control( 'genrolla_footer_credit', array(
+        'label' => esc_html__( 'Footer Credit Text (optional — e.g. "Made with ♥ by Your Brand")', 'genrolla' ), 'section' => 'title_tagline', 'type' => 'text',
     ) );
 }
 add_action( 'customize_register', 'genrolla_customize_register' );

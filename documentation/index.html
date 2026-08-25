@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genrolla — Documentation</title>
+<style>
+:root{--bg:#0F1113;--surface:#1A1F26;--line:#2A3038;--neon:#A3FF12;--ink:#fff;--muted:#9AA3AD}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+header{background:var(--surface);border-bottom:1px solid var(--line);padding:48px 0;margin-bottom:32px}
+header h1{font-size:40px;letter-spacing:-1px}
+header h1 span{color:var(--neon)}
+header p{color:var(--muted);margin-top:8px}
+nav.toc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px 28px;margin-bottom:40px}
+nav.toc h3{font-size:14px;text-transform:uppercase;letter-spacing:1px;color:var(--neon);margin-bottom:12px}
+nav.toc ol{margin-left:20px}
+nav.toc a{color:var(--muted);text-decoration:none}
+nav.toc a:hover{color:var(--neon)}
+section{margin-bottom:48px}
+h2{font-size:26px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--line)}
+h2 span{color:var(--neon)}
+h3{font-size:18px;margin:20px 0 10px;color:var(--neon)}
+p,li{color:var(--muted)}
+strong{color:var(--ink)}
+code{background:var(--surface);border:1px solid var(--line);padding:2px 8px;border-radius:6px;font-size:13px;color:var(--neon)}
+pre{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 20px;overflow-x:auto;margin:12px 0}
+pre code{background:none;border:none;padding:0;color:#D5DAE0}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:10px 14px;text-align:left}
+th{background:var(--surface);color:var(--ink)}
+td{color:var(--muted)}
+.callout{background:rgba(163,255,18,.08);border:1px solid rgba(163,255,18,.3);border-radius:10px;padding:14px 18px;margin:16px 0;color:#E4E8EC;font-size:14px}
+.warn{background:rgba(255,193,7,.08);border:1px solid rgba(255,193,7,.35)}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px;margin-top:48px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>genrolla<span>.</span> — Documentation</h1>
+    <p>Gen Z Blog Theme · Version 2.1.0 · GPL v2+</p>
+  </div>
+</header>
+
+<div class="container">
+
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#install">Installation</a></li>
+    <li><a href="#setup">First-Time Setup</a></li>
+    <li><a href="#customizer">Customizer Options</a></li>
+    <li><a href="#menus">Menus</a></li>
+    <li><a href="#widgets">Widgets</a></li>
+    <li><a href="#trending">Trending Section</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="#seo">SEO Features</a></li>
+    <li><a href="#plugins">Recommended Plugins</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#changelog">Changelog</a></li>
+  </ol>
+</nav>
+
+<section id="overview">
+  <h2>1. <span>Overview</span></h2>
+  <p>Genrolla is a fast, SEO-friendly blog theme designed for Gen Z content creators. It features a semi-dark design with a neon green accent, a one-click demo importer, built-in SEO (schema markup, breadcrumbs, table of contents), a trending section, and full responsiveness.</p>
+  <h3>Key Features</h3>
+  <ul>
+    <li><strong>One-click demo import</strong> — 12 sample posts, 6 categories, 20 tags, featured images &amp; comments</li>
+    <li><strong>SEO-ready</strong> — JSON-LD Article + BreadcrumbList schema, auto Table of Contents, author box</li>
+    <li><strong>Trending section</strong> — most-commented posts, falls back to the <em>Highlight</em> category</li>
+    <li><strong>Card image fallback</strong> — gradient + icon when a post has no featured image</li>
+    <li><strong>Customizer</strong> — colors, hero, newsletter, footer</li>
+    <li><strong>Responsive</strong> — mobile, tablet, desktop</li>
+    <li><strong>Translation ready</strong> — .pot file included</li>
+    <li><strong>RTL ready</strong> — rtl.css included</li>
+  </ul>
+</section>
+
+<section id="install">
+  <h2>2. <span>Installation</span></h2>
+  <h3>Option A — Via WordPress Admin (recommended)</h3>
+  <ol>
+    <li>Download the theme ZIP file.</li>
+    <li>Go to <strong>Appearance → Themes → Add New</strong>.</li>
+    <li>Click <strong>Upload Theme</strong> and select the ZIP file.</li>
+    <li>Click <strong>Install Now</strong>, then <strong>Activate</strong>.</li>
+  </ol>
+  <h3>Option B — Via FTP</h3>
+  <ol>
+    <li>Upload the <code>genrolla</code> folder to <code>wp-content/themes/</code>.</li>
+    <li>Go to <strong>Appearance → Themes</strong> and activate <strong>Genrolla</strong>.</li>
+  </ol>
+  <div class="callout warn">⚠️ Make sure <strong>Settings → Reading → "Your homepage displays"</strong> is set to <strong>"Your latest posts"</strong> so the front page template is used.</div>
+</section>
+
+<section id="setup">
+  <h2>3. <span>First-Time Setup</span></h2>
+  <ol>
+    <li><strong>Import demo content</strong> — go to <code>Appearance → Import Demo</code> and click <em>Import Demo Content Now</em>. This creates 12 sample posts, categories, tags, featured images and comments.</li>
+    <li><strong>Customize</strong> — go to <code>Appearance → Customize</code> and set your logo, colors, hero title/subtitle and newsletter text.</li>
+    <li><strong>Menus</strong> — go to <code>Appearance → Menus</code> and create a Primary menu.</li>
+    <li><strong>Widgets (optional)</strong> — go to <code>Appearance → Widgets</code> and add content to the Sidebar and Footer columns.</li>
+    <li><strong>Pages</strong> — create an <em>About</em> page and select the <strong>About</strong> template in the editor sidebar.</li>
+  </ol>
+</section>
+
+<section id="customizer">
+  <h2>4. <span>Customizer Options</span></h2>
+  <table>
+    <tr><th>Section</th><th>Setting</th><th>Description</th></tr>
+    <tr><td>Site Identity</td><td>Logo</td><td>Upload your logo (custom-logo support)</td></tr>
+    <tr><td>Site Identity</td><td>Footer Copyright</td><td>Copyright text shown in the footer</td></tr>
+    <tr><td>Site Identity</td><td>Footer Credit</td><td>Optional credit line (leave empty to hide)</td></tr>
+    <tr><td>Colors</td><td>Background</td><td>Base background color (default #0F1113)</td></tr>
+    <tr><td>Colors</td><td>Accent (Neon)</td><td>Accent color (default #A3FF12)</td></tr>
+    <tr><td>Hero Section</td><td>Background Image</td><td>Hero background photo</td></tr>
+    <tr><td>Hero Section</td><td>Title / Subtitle</td><td>Main hero text</td></tr>
+    <tr><td>Hero Section</td><td>Button Text / URL</td><td>Hero CTA (empty URL = scroll to posts)</td></tr>
+    <tr><td>Newsletter</td><td>Title / Description</td><td>Newsletter box text</td></tr>
+    <tr><td>Newsletter</td><td>Form Action URL</td><td>Your ESP endpoint (Mailchimp/ConvertKit)</td></tr>
+    <tr><td>Newsletter</td><td>Plugin Shortcode</td><td>e.g. <code>[mc4wp_form id="1"]</code></td></tr>
+  </table>
+</section>
+
+<section id="menus">
+  <h2>5. <span>Menus</span></h2>
+  <p>The theme registers two menu locations:</p>
+  <ul>
+    <li><strong>Primary Menu</strong> — top navigation</li>
+    <li><strong>Footer Menu</strong> — footer links (optional)</li>
+  </ul>
+  <p>Go to <strong>Appearance → Menus</strong>, create a menu, add items, and assign it to the Primary location.</p>
+</section>
+
+<section id="widgets">
+  <h2>6. <span>Widgets</span></h2>
+  <p>Registered widget areas:</p>
+  <ul>
+    <li><strong>Sidebar</strong> — shown on single posts &amp; archives</li>
+    <li><strong>Footer Column 1–3</strong> — footer widgets</li>
+  </ul>
+  <p>Add widgets from <strong>Appearance → Widgets</strong>. For the sidebar we recommend: Latest Posts, Categories, Tag Cloud.</p>
+</section>
+
+<section id="trending">
+  <h2>7. <span>Trending Section</span></h2>
+  <p>The home page "Trending now" section uses this priority:</p>
+  <ol>
+    <li><strong>Most-commented posts</strong> (real engagement)</li>
+    <li><strong>Highlight category</strong> — if no posts have comments</li>
+    <li><strong>Latest posts</strong> — if Highlight is empty</li>
+  </ol>
+  <p>To control the fallback: create a category named <strong>Highlight</strong> (slug <code>highlight</code>) and assign your featured posts to it.</p>
+</section>
+
+<section id="newsletter">
+  <h2>8. <span>Newsletter</span></h2>
+  <p>The theme includes a newsletter box with a plain HTML form. To actually send emails:</p>
+  <ol>
+    <li>Install <strong>MC4WP: Mailchimp for WordPress</strong> (or ConvertKit plugin).</li>
+    <li>Copy its shortcode, e.g. <code>[mc4wp_form id="1"]</code>.</li>
+    <li>Paste it in <strong>Customize → Newsletter Settings → Plugin Shortcode</strong>.</li>
+  </ol>
+  <p>Alternatively, fill <strong>Form Action URL</strong> with your ESP endpoint so the built-in form submits there.</p>
+</section>
+
+<section id="seo">
+  <h2>9. <span>SEO Features</span></h2>
+  <ul>
+    <li><strong>JSON-LD Article schema</strong> on single posts (auto-generated)</li>
+    <li><strong>JSON-LD BreadcrumbList schema</strong> + visual breadcrumbs</li>
+    <li><strong>Auto Table of Contents</strong> from H2 headings (with smooth scroll)</li>
+    <li><strong>Author box</strong> with author bio</li>
+    <li><strong>Correct heading hierarchy</strong> — one H1 per page</li>
+    <li><strong>Read time</strong> estimator</li>
+  </ul>
+</section>
+
+<section id="plugins">
+  <h2>10. <span>Recommended Plugins</span></h2>
+  <table>
+    <tr><th>Plugin</th><th>Purpose</th><th>Required?</th></tr>
+    <tr><td><strong>Yoast SEO</strong></td><td>Meta descriptions, XML sitemaps, advanced SEO</td><td>Optional (recommended)</td></tr>
+    <tr><td>MC4WP / ConvertKit</td><td>Working newsletter form</td><td>Only for newsletter</td></tr>
+    <tr><td>Classic Editor</td><td>Older editing experience</td><td>No — both editors supported</td></tr>
+  </table>
+  <p>An admin notice appears once recommending Yoast SEO. It can be dismissed permanently.</p>
+</section>
+
+<section id="faq">
+  <h2>11. <span>FAQ</span></h2>
+  <h3>Where do I edit the About page content?</h3>
+  <p>Create/edit a page, fill in the title, excerpt, featured image, and body content in the editor, then select the <strong>About</strong> template.</p>
+  <h3>Does the theme work with the Classic Editor?</h3>
+  <p>Yes. All content is rendered through <code>the_content()</code>, so both Gutenberg and Classic Editor work.</p>
+  <h3>Why is my homepage blank?</h3>
+  <p>Check <strong>Settings → Reading</strong>: it must be set to <strong>"Your latest posts"</strong> (not a static page).</p>
+  <h3>How do I remove the demo content?</h3>
+  <p>Go to <strong>Appearance → Import Demo</strong> and click <em>Remove Demo Content</em>.</p>
+  <h3>Can I change the accent color?</h3>
+  <p>Yes — <strong>Appearance → Customize → Colors → Accent (Neon)</strong>.</p>
+</section>
+
+<section id="changelog">
+  <h2>12. <span>Changelog</span></h2>
+  <h3>2.1.0</h3>
+  <ul>
+    <li>Added .pot translation file + load_theme_textdomain</li>
+    <li>Added RTL support (rtl.css)</li>
+    <li>Footer credit now optional via Customizer (ThemeForest compliant)</li>
+    <li>English UI &amp; demo content</li>
+    <li>Yoast SEO recommended plugin notice</li>
+    <li>Trending fallback to Highlight category</li>
+  </ul>
+  <h3>2.0.0</h3>
+  <ul>
+    <li>Full redesign: semi-dark + neon green</li>
+    <li>One-click demo importer</li>
+    <li>SEO: schema, breadcrumb, ToC, author box</li>
+    <li>Card image fallback, FA icons, responsive</li>
+  </ul>
+</section>
+
+<footer>
+  <div class="container">© 2026 Genrolla. Licensed under GPL v2 or later.</div>
+</footer>
+
+</div>
+</body>
+</html>

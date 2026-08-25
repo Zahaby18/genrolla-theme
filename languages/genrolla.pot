@@ -1,0 +1,376 @@
+# Copyright (C) 2026 Zahab
+# This file is distributed under the GNU General Public License v2 or later.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Genrolla 2.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/Zahaby18/genrolla-theme/issues\n"
+"POT-Creation-Date: 2026-08-25 08:21+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language-Team: \n"
+"X-Generator: genrolla-tools\n"
+
+#: search.php:17
+msgid "%d posts found"
+msgstr ""
+
+#: functions.php:403
+msgid "%d min read"
+msgid_plural "%d min read"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:18
+msgid "1 comment"
+msgid_plural "%d comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: front-page.php:32
+msgid "About genrolla"
+msgstr ""
+
+#: template-about.php:18
+msgid "About us"
+msgstr ""
+
+#: functions.php:112
+msgid "Accent (Neon) Color"
+msgstr ""
+
+#: front-page.php:132
+msgid "All"
+msgstr ""
+
+#: front-page.php:123
+msgid "All articles"
+msgstr ""
+
+#: inc/demo-import.php:43
+msgid "All demo content has been removed."
+msgstr ""
+
+#: footer.php:58
+#: functions.php:185
+msgid "All rights reserved."
+msgstr ""
+
+#: functions.php:56
+msgid "Appears in single posts & archives."
+msgstr ""
+
+#: archive.php:26
+msgid "Archive"
+msgstr ""
+
+#: front-page.php:36
+msgid "Articles"
+msgstr ""
+
+#: archive.php:24
+msgid "Author"
+msgstr ""
+
+#: 404.php:19
+msgid "Back to Home"
+msgstr ""
+
+#: functions.php:109
+msgid "Background Color"
+msgstr ""
+
+#: archive.php:28
+#: archive.php:44
+#: functions.php:276
+#: functions.php:329
+#: index.php:14
+msgid "Blog"
+msgstr ""
+
+#: archive.php:20
+msgid "Category"
+msgstr ""
+
+#: comments.php:32
+msgid "Comments are closed."
+msgstr ""
+
+#: inc/demo-import.php:49
+msgid "Demo content has already been imported."
+msgstr ""
+
+#: inc/demo-import.php:36
+msgid "Demo content has been generated."
+msgstr ""
+
+#: functions.php:475
+msgid "Dismiss"
+msgstr ""
+
+#: inc/demo-import.php:43
+msgid "Done!"
+msgstr ""
+
+#: functions.php:65
+msgid "Footer Column %d"
+msgstr ""
+
+#: functions.php:188
+msgid "Footer Copyright Text"
+msgstr ""
+
+#: functions.php:35
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:67
+msgid "Footer widget area."
+msgstr ""
+
+#: functions.php:172
+msgid "Form action URL (MC4WP/ConvertKit endpoint — leave empty if using plugin shortcode)"
+msgstr ""
+
+#: front-page.php:120
+msgid "Fresh"
+msgstr ""
+
+#: inc/demo-import.php:32
+msgid "Generate sample content (categories, tags, 12 posts, featured images, and comments) so the theme looks alive right away. Everything can be removed with one click."
+msgstr ""
+
+#: functions.php:471
+msgid "Genrolla Theme — Recommended plugin: Yoast SEO"
+msgstr ""
+
+#: inc/demo-import.php:31
+msgid "Genrolla — Import Demo Content"
+msgstr ""
+
+#: functions.php:123
+msgid "Hero Background Image"
+msgstr ""
+
+#: functions.php:142
+msgid "Hero Button Text"
+msgstr ""
+
+#: functions.php:148
+msgid "Hero Button URL (empty = scroll to posts)"
+msgstr ""
+
+#: functions.php:117
+msgid "Hero Section"
+msgstr ""
+
+#: functions.php:136
+msgid "Hero Subtitle"
+msgstr ""
+
+#: functions.php:129
+msgid "Hero Title"
+msgstr ""
+
+#: functions.php:271
+msgid "Home"
+msgstr ""
+
+#: inc/demo-import.php:19
+msgid "Import Demo"
+msgstr ""
+
+#: inc/demo-import.php:18
+msgid "Import Demo Content"
+msgstr ""
+
+#: inc/demo-import.php:57
+msgid "Import Demo Content Now"
+msgstr ""
+
+#: functions.php:474
+msgid "Install Yoast SEO"
+msgstr ""
+
+#: footer.php:7
+#: functions.php:162
+msgid "Join 30,000+ readers getting career & finance tips straight to their inbox. Free."
+msgstr ""
+
+#: front-page.php:121
+#: index.php:15
+msgid "Latest articles"
+msgstr ""
+
+#: front-page.php:20
+#: functions.php:126
+msgid "Level up your career, your way."
+msgstr ""
+
+#: header.php:53
+msgid "Menu"
+msgstr ""
+
+#: functions.php:166
+msgid "Newsletter Description"
+msgstr ""
+
+#: functions.php:153
+msgid "Newsletter Settings"
+msgstr ""
+
+#: functions.php:159
+msgid "Newsletter Title"
+msgstr ""
+
+#: single.php:73
+msgid "Next"
+msgstr ""
+
+#: archive.php:87
+msgid "No posts here yet."
+msgstr ""
+
+#: index.php:39
+msgid "No posts yet."
+msgstr ""
+
+#: search.php:42
+msgid "Nothing found. Try different keywords."
+msgstr ""
+
+#: page.php:17
+#: template-full-width.php:18
+msgid "Page"
+msgstr ""
+
+#: functions.php:327
+msgid "Page not found"
+msgstr ""
+
+#: 404.php:15
+msgid "Page not found."
+msgstr ""
+
+#: front-page.php:21
+#: functions.php:132
+msgid "Practical guides for Gen Z who want to work smart, not just work hard."
+msgstr ""
+
+#: single.php:67
+msgid "Previous"
+msgstr ""
+
+#: functions.php:34
+msgid "Primary Menu"
+msgstr ""
+
+#: header.php:35
+msgid "Primary Navigation"
+msgstr ""
+
+#: front-page.php:38
+msgid "Reader rating"
+msgstr ""
+
+#: front-page.php:37
+msgid "Readers / month"
+msgstr ""
+
+#: inc/demo-import.php:66
+msgid "Remove Demo Content"
+msgstr ""
+
+#: inc/demo-import.php:65
+msgid "Remove all demo content?"
+msgstr ""
+
+#: search.php:15
+msgid "Results for: %s"
+msgstr ""
+
+#: header.php:47
+#: search.php:14
+msgid "Search"
+msgstr ""
+
+#: searchform.php:9
+msgid "Search articles..."
+msgstr ""
+
+#: functions.php:325
+msgid "Search results"
+msgstr ""
+
+#: archive.php:59
+msgid "Showing %d posts"
+msgstr ""
+
+#: functions.php:54
+msgid "Sidebar"
+msgstr ""
+
+#: front-page.php:25
+#: functions.php:139
+msgid "Start reading free"
+msgstr ""
+
+#: footer.php:18
+#: header.php:51
+msgid "Subscribe"
+msgstr ""
+
+#: inc/demo-import.php:36
+msgid "Success!"
+msgstr ""
+
+#: archive.php:22
+msgid "Tag"
+msgstr ""
+
+#: 404.php:16
+msgid "The link may be broken or the page has moved. Try searching again:"
+msgstr ""
+
+#: front-page.php:54
+msgid "Trending"
+msgstr ""
+
+#: front-page.php:55
+msgid "Trending now"
+msgstr ""
+
+#: front-page.php:57
+msgid "View all"
+msgstr ""
+
+#: template-parts/author-box.php:16
+msgid "View all posts"
+msgstr ""
+
+#: inc/demo-import.php:37
+msgid "View site"
+msgstr ""
+
+#: template-parts/author-box.php:14
+msgid "Writer at this blog."
+msgstr ""
+
+#: functions.php:472
+msgid "Yoast SEO adds meta descriptions, XML sitemaps, and advanced SEO controls. The theme already includes schema markup, breadcrumbs, and a table of contents, so Yoast is optional but recommended for full SEO power."
+msgstr ""
+
+#: footer.php:17
+msgid "Your email..."
+msgstr ""
+
+#: single.php:32
+msgid "comments"
+msgstr ""
+
+#: front-page.php:42
+msgid "scroll"
+msgstr ""
+
