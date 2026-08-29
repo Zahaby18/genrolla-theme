@@ -160,13 +160,20 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
 
 <section id="newsletter">
   <h2>8. <span>Newsletter</span></h2>
-  <p>The theme includes a newsletter box with a plain HTML form. To actually send emails:</p>
+  <p>The theme includes a newsletter form that <strong>saves emails directly to WordPress</strong> — no plugin required:</p>
+  <ul>
+    <li>Emails are stored in a <strong>Subscribers</strong> post type (visible in the admin menu)</li>
+    <li>On the Subscribers list page, click <strong>Export CSV</strong> to download all emails</li>
+    <li>Duplicate emails are rejected automatically; success/error messages show inline</li>
+  </ul>
+  <h3>Connect an Email Service (optional)</h3>
+  <p>To send campaigns from the collected emails:</p>
   <ol>
     <li>Install <strong>MC4WP: Mailchimp for WordPress</strong> (or ConvertKit plugin).</li>
     <li>Copy its shortcode, e.g. <code>[mc4wp_form id="1"]</code>.</li>
-    <li>Paste it in <strong>Customize → Newsletter Settings → Plugin Shortcode</strong>.</li>
+    <li>Paste it in <strong>Customize → Newsletter Settings → Plugin Shortcode</strong> — this replaces the built-in form.</li>
   </ol>
-  <p>Alternatively, fill <strong>Form Action URL</strong> with your ESP endpoint so the built-in form submits there.</p>
+  <p>Alternatively, fill <strong>Form Action URL</strong> with your ESP endpoint to override the built-in storage.</p>
 </section>
 
 <section id="seo">
@@ -208,6 +215,12 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
 
 <section id="changelog">
   <h2>12. <span>Changelog</span></h2>
+  <h3>2.1.2</h3>
+  <ul>
+    <li>Built-in subscriber storage: newsletter form now saves emails to a <em>Subscribers</em> post type (no plugin needed)</li>
+    <li>Export Subscribers as CSV button on the admin list page</li>
+    <li>Success/error notices on the newsletter form</li>
+  </ul>
   <h3>2.1.1</h3>
   <ul>
     <li>Rebranded: removed "Gen Z" wording (now a generic modern blog theme)</li>

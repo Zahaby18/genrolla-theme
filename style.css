@@ -4,7 +4,7 @@ Theme URI: https://github.com/Zahaby18/genrolla-theme
 Author: Zahab
 Author URI: https://github.com/Zahaby18
 Description: Fast, SEO-friendly, modern blog theme. Semi-dark with neon green accent. Built-in breadcrumb, schema markup, Table of Contents, author box, trending section, one-click demo importer. Perfect for content creators, affiliate marketing and AdSense monetization.
-Version: 2.1.1
+Version: 2.1.2
 Requires at least: 5.8
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -458,3 +458,8 @@ footer.site-footer{background:var(--bg-footer);border-top:1px solid var(--line);
 @media(max-width:768px){
   .about-content,.page-content.fullwidth{max-width:100%}
 }
+
+/* Newsletter notice */
+.nl-notice{margin-top:12px;font-size:14px;font-weight:600;padding:10px 16px;border-radius:10px;display:inline-flex;gap:8px;align-items:center}
+.nl-success{background:rgba(15,17,19,.1);color:#0F1113}
+.nl-error{background:rgba(255,255,255,.85);color:#B3261E}

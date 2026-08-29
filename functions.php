@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'GENROLLA_VERSION', '2.1.1' );
+define( 'GENROLLA_VERSION', '2.1.2' );
 
 /* ============================================================
  * THEME SETUP
@@ -176,7 +176,7 @@ function genrolla_customize_register( $wp_customize ) {
         'default' => '', 'sanitize_callback' => 'esc_url_raw',
     ) );
     $wp_customize->add_control( 'genrolla_newsletter_form_action', array(
-        'label' => esc_html__( 'Form action URL (MC4WP/ConvertKit endpoint — leave empty if using plugin shortcode)', 'genrolla' ),
+        'label' => esc_html__( 'Form action URL (optional — overrides built-in storage; use MC4WP/ConvertKit endpoint)', 'genrolla' ),
         'section' => 'genrolla_newsletter', 'type' => 'url',
     ) );
     $wp_customize->add_setting( 'genrolla_newsletter_shortcode', array(
@@ -461,6 +461,111 @@ function genrolla_related_posts( $count = 3 ) {
 function genrolla_author_box() {
     get_template_part( 'template-parts/author-box' );
 }
+
+/* ============================================================
+ * SUBSCRIBERS — built-in newsletter storage (CPT + Export CSV)
+ * ============================================================ */
+
+/* Register CPT "subscriber" automatically on theme activation */
+function genrolla_register_subscriber_cpt() {
+    register_post_type( 'subscriber', array(
+        'labels'       => array(
+            'name'          => esc_html__( 'Subscribers', 'genrolla' ),
+            'singular_name' => esc_html__( 'Subscriber', 'genrolla' ),
+            'edit_item'     => esc_html__( 'View Subscriber', 'genrolla' ),
+            'search_items'  => esc_html__( 'Search Subscribers', 'genrolla' ),
+            'not_found'     => esc_html__( 'No subscribers yet. Use the newsletter form on your site.', 'genrolla' ),
+        ),
+        'public'       => false,
+        'show_ui'      => true,
+        'show_in_menu' => true,
+        'menu_icon'    => 'dashicons-email-alt',
+        'supports'     => array( 'title' ),
+        'capability_type' => 'post',
+        'map_meta_cap' => true,
+        'rewrite'      => false,
+    ) );
+}
+add_action( 'init', 'genrolla_register_subscriber_cpt' );
+
+/* Handle newsletter form submission -> store email in CPT */
+function genrolla_handle_subscribe() {
+    if ( ! isset( $_POST['genrolla_subscribe'] ) ) {
+        return;
+    }
+
+    // Honeypot: bots fill hidden field
+    if ( ! empty( $_POST['genrolla_hp'] ) ) {
+        wp_safe_redirect( add_query_arg( 'subscribe_error', 'bot', wp_get_referer() ? wp_get_referer() : home_url( '/' ) ) );
+        exit;
+    }
+
+    $email = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
+    if ( ! is_email( $email ) ) {
+        wp_safe_redirect( add_query_arg( 'subscribe_error', 'invalid', wp_get_referer() ? wp_get_referer() : home_url( '/' ) ) );
+        exit;
+    }
+
+    // Duplicate check by email (stored as post title)
+    $existing = get_posts( array(
+        'post_type'   => 'subscriber',
+        'post_status' => 'any',
+        'title'       => $email,
+        'numberposts' => 1,
+    ) );
+
+    if ( empty( $existing ) ) {
+        wp_insert_post( array(
+            'post_type'   => 'subscriber',
+            'post_title'  => $email,
+            'post_status' => 'publish',
+        ) );
+    } else {
+        wp_safe_redirect( add_query_arg( 'subscribe_error', 'duplicate', wp_get_referer() ? wp_get_referer() : home_url( '/' ) ) );
+        exit;
+    }
+
+    wp_safe_redirect( add_query_arg( 'subscribed', '1', wp_get_referer() ? wp_get_referer() : home_url( '/' ) ) );
+    exit;
+}
+add_action( 'template_redirect', 'genrolla_handle_subscribe' );
+
+/* Export CSV button on the Subscribers list page */
+function genrolla_subscriber_views( $views ) {
+    if ( current_user_can( 'manage_options' ) ) {
+        $url = wp_nonce_url( admin_url( 'edit.php?post_type=subscriber&genrolla_export=1' ), 'genrolla_export' );
+        $views['genrolla_export'] = '<a href="' . esc_url( $url ) . '" class="button" style="margin-left:8px">' . esc_html__( 'Export CSV', 'genrolla' ) . '</a>';
+    }
+    return $views;
+}
+add_filter( 'views_edit-subscriber', 'genrolla_subscriber_views' );
+
+/* Handle CSV export */
+function genrolla_export_subscribers_csv() {
+    if ( ! isset( $_GET['genrolla_export'] ) || ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+    check_admin_referer( 'genrolla_export' );
+
+    $subscribers = get_posts( array(
+        'post_type'      => 'subscriber',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1,
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+    ) );
+
+    header( 'Content-Type: text/csv; charset=utf-8' );
+    header( 'Content-Disposition: attachment; filename=subscribers-' . gmdate( 'Y-m-d' ) . '.csv' );
+    $out = fopen( 'php://output', 'w' );
+    fputcsv( $out, array( 'ID', 'Email', 'Subscribed Date' ) );
+    foreach ( $subscribers as $s ) {
+        fputcsv( $out, array( $s->ID, $s->post_title, get_the_date( 'Y-m-d H:i', $s ) ) );
+    }
+    fclose( $out );
+    exit;
+}
+add_action( 'admin_init', 'genrolla_export_subscribers_csv' );
 
 /* ============================================================
  * RECOMMENDED PLUGINS NOTICE (soft, one-time dismiss)

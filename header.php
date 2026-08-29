@@ -47,9 +47,7 @@
             <button class="icon-btn" id="genrolla-search-toggle" aria-label="<?php esc_attr_e( 'Search', 'genrolla' ); ?>">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-            <?php if ( get_theme_mod( 'genrolla_newsletter_shortcode' ) || get_theme_mod( 'genrolla_newsletter_form_action' ) ) : ?>
-                <a href="#genrolla-newsletter" class="btn btn-neon"><?php esc_html_e( 'Subscribe', 'genrolla' ); ?></a>
-            <?php endif; ?>
+            <a href="#genrolla-newsletter" class="btn btn-neon"><?php esc_html_e( 'Subscribe', 'genrolla' ); ?></a>
             <button class="menu-toggle" id="genrolla-menu-toggle" aria-label="<?php esc_attr_e( 'Menu', 'genrolla' ); ?>">
                 <i class="fa-solid fa-bars"></i>
             </button>

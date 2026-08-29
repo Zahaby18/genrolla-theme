@@ -5,6 +5,21 @@
                 <div>
                     <h2><?php echo esc_html( get_theme_mod( 'genrolla_newsletter_title', __( 'Don\'t miss weekly career insights.', 'genrolla' ) ) ); ?></h2>
                     <p><?php echo esc_html( get_theme_mod( 'genrolla_newsletter_text', __( 'Join 30,000+ readers getting career & finance tips straight to their inbox. Free.', 'genrolla' ) ) ); ?></p>
+                    <?php
+                    if ( isset( $_GET['subscribed'] ) ) {
+                        echo '<p class="nl-notice nl-success"><i class="fa-solid fa-circle-check"></i> ' . esc_html__( 'Thanks! Your email has been subscribed.', 'genrolla' ) . '</p>';
+                    } elseif ( isset( $_GET['subscribe_error'] ) ) {
+                        $err = sanitize_key( wp_unslash( $_GET['subscribe_error'] ) );
+                        if ( 'duplicate' === $err ) {
+                            $msg = __( 'This email is already subscribed.', 'genrolla' );
+                        } elseif ( 'invalid' === $err ) {
+                            $msg = __( 'Please enter a valid email address.', 'genrolla' );
+                        } else {
+                            $msg = __( 'Something went wrong. Please try again.', 'genrolla' );
+                        }
+                        echo '<p class="nl-notice nl-error"><i class="fa-solid fa-circle-exclamation"></i> ' . esc_html( $msg ) . '</p>';
+                    }
+                    ?>
                 </div>
                 <?php
                 $shortcode = get_theme_mod( 'genrolla_newsletter_shortcode', '' );
@@ -13,7 +28,11 @@
                     echo '<div class="nl-form">' . do_shortcode( $shortcode ) . '</div>';
                 } else {
                     ?>
-                    <form class="nl-form" action="<?php echo esc_url( $action ? $action : '#' ); ?>" method="post">
+                    <form class="nl-form" action="<?php echo esc_url( $action ? $action : home_url( '/' ) ); ?>" method="post">
+                        <?php if ( ! $action ) : ?>
+                            <input type="hidden" name="genrolla_subscribe" value="1">
+                            <input type="text" name="genrolla_hp" value="" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <?php endif; ?>
                         <input type="email" name="email" placeholder="<?php esc_attr_e( 'Your email...', 'genrolla' ); ?>" required>
                         <button class="btn btn-neon" type="submit"><?php esc_html_e( 'Subscribe', 'genrolla' ); ?></button>
                     </form>
