@@ -31,6 +31,10 @@ A fast, SEO-friendly, modern blog theme. Semi-dark design with a neon green acce
 6. **Appearance → Menus** → create Primary & Footer menus
 7. **Appearance → Widgets** → fill Sidebar & Footer (optional)
 
+## 👶 Child Theme
+
+A ready-made child theme lives in the `genrolla-child/` folder. Copy it to `wp-content/themes/genrolla-child/` (or upload the zipped folder) and activate it. All parent features keep working, and your custom CSS/PHP survives parent updates. See `genrolla-child/README.md` for details.
+
 ## 🗂️ Structure
 
 ```
