@@ -215,6 +215,10 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
 
 <section id="changelog">
   <h2>12. <span>Changelog</span></h2>
+  <h3>2.1.4</h3>
+  <ul>
+    <li>Fixed "Cannot redeclare" fatal when the child theme loads parent functions.php — added a file-level guard so the file can never run twice</li>
+  </ul>
   <h3>2.1.3</h3>
   <ul>
     <li>Added head/body action hooks (<code>genrolla_head_top</code>, <code>genrolla_head_bottom</code>, <code>genrolla_body_top</code>)</li>

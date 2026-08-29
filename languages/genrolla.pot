@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genrolla 2.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/Zahaby18/genrolla-theme/issues\n"
-"POT-Creation-Date: 2026-08-29 05:46+0000\n"
+"POT-Creation-Date: 2026-08-29 06:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,7 +17,7 @@ msgstr ""
 msgid "%d posts found"
 msgstr ""
 
-#: functions.php:459
+#: functions.php:480
 msgid "%d min read"
 msgid_plural "%d min read"
 msgstr[0] ""
@@ -37,11 +37,11 @@ msgstr ""
 msgid "About us"
 msgstr ""
 
-#: functions.php:119
+#: functions.php:140
 msgid "Accent (Neon) Color"
 msgstr ""
 
-#: functions.php:205
+#: functions.php:226
 msgid "Advanced Code (Analytics)"
 msgstr ""
 
@@ -58,11 +58,11 @@ msgid "All demo content has been removed."
 msgstr ""
 
 #: footer.php:77
-#: functions.php:192
+#: functions.php:213
 msgid "All rights reserved."
 msgstr ""
 
-#: functions.php:58
+#: functions.php:79
 msgid "Appears in single posts & archives."
 msgstr ""
 
@@ -82,19 +82,19 @@ msgstr ""
 msgid "Back to Home"
 msgstr ""
 
-#: functions.php:116
+#: functions.php:137
 msgid "Background Color"
 msgstr ""
 
 #: archive.php:28
 #: archive.php:44
-#: functions.php:332
-#: functions.php:385
+#: functions.php:353
+#: functions.php:406
 #: index.php:14
 msgid "Blog"
 msgstr ""
 
-#: functions.php:219
+#: functions.php:240
 msgid "Body Code"
 msgstr ""
 
@@ -114,7 +114,7 @@ msgstr ""
 msgid "Demo content has been generated."
 msgstr ""
 
-#: functions.php:636
+#: functions.php:657
 msgid "Dismiss"
 msgstr ""
 
@@ -122,27 +122,27 @@ msgstr ""
 msgid "Done!"
 msgstr ""
 
-#: functions.php:586
+#: functions.php:607
 msgid "Export CSV"
 msgstr ""
 
-#: functions.php:67
+#: functions.php:88
 msgid "Footer Column %d"
 msgstr ""
 
-#: functions.php:195
+#: functions.php:216
 msgid "Footer Copyright Text"
 msgstr ""
 
-#: functions.php:37
+#: functions.php:47
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:69
+#: functions.php:90
 msgid "Footer widget area."
 msgstr ""
 
-#: functions.php:179
+#: functions.php:200
 msgid "Form action URL (optional — overrides built-in storage; use MC4WP/ConvertKit endpoint)"
 msgstr ""
 
@@ -150,7 +150,7 @@ msgstr ""
 msgid "Fresh"
 msgstr ""
 
-#: functions.php:220
+#: functions.php:241
 msgid "GTM noscript/body snippet. Output right after <body>."
 msgstr ""
 
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Generate sample content (categories, tags, 12 posts, featured images, and comments) so the theme looks alive right away. Everything can be removed with one click."
 msgstr ""
 
-#: functions.php:632
+#: functions.php:653
 msgid "Genrolla Theme — Recommended plugin: Yoast SEO"
 msgstr ""
 
@@ -166,35 +166,35 @@ msgstr ""
 msgid "Genrolla — Import Demo Content"
 msgstr ""
 
-#: functions.php:211
+#: functions.php:232
 msgid "Head Code"
 msgstr ""
 
-#: functions.php:130
+#: functions.php:151
 msgid "Hero Background Image"
 msgstr ""
 
-#: functions.php:149
+#: functions.php:170
 msgid "Hero Button Text"
 msgstr ""
 
-#: functions.php:155
+#: functions.php:176
 msgid "Hero Button URL (empty = scroll to posts)"
 msgstr ""
 
-#: functions.php:124
+#: functions.php:145
 msgid "Hero Section"
 msgstr ""
 
-#: functions.php:143
+#: functions.php:164
 msgid "Hero Subtitle"
 msgstr ""
 
-#: functions.php:136
+#: functions.php:157
 msgid "Hero Title"
 msgstr ""
 
-#: functions.php:327
+#: functions.php:348
 msgid "Home"
 msgstr ""
 
@@ -210,12 +210,12 @@ msgstr ""
 msgid "Import Demo Content Now"
 msgstr ""
 
-#: functions.php:635
+#: functions.php:656
 msgid "Install Yoast SEO"
 msgstr ""
 
 #: footer.php:7
-#: functions.php:169
+#: functions.php:190
 msgid "Join 30,000+ readers getting career & finance tips straight to their inbox. Free."
 msgstr ""
 
@@ -225,24 +225,23 @@ msgid "Latest articles"
 msgstr ""
 
 #: front-page.php:20
-#: functions.php:133
+#: functions.php:154
 msgid "Level up your career, your way."
 msgstr ""
 
-#: genrolla-child/header.php:72
 #: header.php:54
 msgid "Menu"
 msgstr ""
 
-#: functions.php:173
+#: functions.php:194
 msgid "Newsletter Description"
 msgstr ""
 
-#: functions.php:160
+#: functions.php:181
 msgid "Newsletter Settings"
 msgstr ""
 
-#: functions.php:166
+#: functions.php:187
 msgid "Newsletter Title"
 msgstr ""
 
@@ -258,7 +257,7 @@ msgstr ""
 msgid "No posts yet."
 msgstr ""
 
-#: functions.php:526
+#: functions.php:547
 msgid "No subscribers yet. Use the newsletter form on your site."
 msgstr ""
 
@@ -271,7 +270,7 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
-#: functions.php:383
+#: functions.php:404
 msgid "Page not found"
 msgstr ""
 
@@ -279,7 +278,7 @@ msgstr ""
 msgid "Page not found."
 msgstr ""
 
-#: functions.php:212
+#: functions.php:233
 msgid "Paste Google Tag / GTM / Analytics snippet here. Output before </head>."
 msgstr ""
 
@@ -288,7 +287,7 @@ msgid "Please enter a valid email address."
 msgstr ""
 
 #: front-page.php:21
-#: functions.php:139
+#: functions.php:160
 msgid "Practical guides to help you work smart, not just work hard."
 msgstr ""
 
@@ -296,11 +295,10 @@ msgstr ""
 msgid "Previous"
 msgstr ""
 
-#: functions.php:36
+#: functions.php:46
 msgid "Primary Menu"
 msgstr ""
 
-#: genrolla-child/header.php:56
 #: header.php:38
 msgid "Primary Navigation"
 msgstr ""
@@ -325,13 +323,12 @@ msgstr ""
 msgid "Results for: %s"
 msgstr ""
 
-#: genrolla-child/header.php:68
 #: header.php:50
 #: search.php:14
 msgid "Search"
 msgstr ""
 
-#: functions.php:525
+#: functions.php:546
 msgid "Search Subscribers"
 msgstr ""
 
@@ -339,7 +336,7 @@ msgstr ""
 msgid "Search articles..."
 msgstr ""
 
-#: functions.php:381
+#: functions.php:402
 msgid "Search results"
 msgstr ""
 
@@ -347,7 +344,7 @@ msgstr ""
 msgid "Showing %d posts"
 msgstr ""
 
-#: functions.php:56
+#: functions.php:77
 msgid "Sidebar"
 msgstr ""
 
@@ -356,21 +353,20 @@ msgid "Something went wrong. Please try again."
 msgstr ""
 
 #: front-page.php:25
-#: functions.php:146
+#: functions.php:167
 msgid "Start reading free"
 msgstr ""
 
 #: footer.php:37
-#: genrolla-child/header.php:71
 #: header.php:53
 msgid "Subscribe"
 msgstr ""
 
-#: functions.php:523
+#: functions.php:544
 msgid "Subscriber"
 msgstr ""
 
-#: functions.php:522
+#: functions.php:543
 msgid "Subscribers"
 msgstr ""
 
@@ -402,7 +398,7 @@ msgstr ""
 msgid "Trending now"
 msgstr ""
 
-#: functions.php:524
+#: functions.php:545
 msgid "View Subscriber"
 msgstr ""
 
@@ -422,7 +418,7 @@ msgstr ""
 msgid "Writer at this blog."
 msgstr ""
 
-#: functions.php:633
+#: functions.php:654
 msgid "Yoast SEO adds meta descriptions, XML sitemaps, and advanced SEO controls. The theme already includes schema markup, breadcrumbs, and a table of contents, so Yoast is optional but recommended for full SEO power."
 msgstr ""
 

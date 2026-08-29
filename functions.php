@@ -10,7 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'GENROLLA_VERSION', '2.1.3' );
+/*
+ * File-level guard: prevents this file from being executed twice
+ * (e.g. when a child theme includes it AND WordPress also loads it).
+ * This avoids "Cannot redeclare function" fatal errors.
+ */
+if ( defined( 'GENROLLA_FUNCTIONS_LOADED' ) ) {
+    return;
+}
+define( 'GENROLLA_FUNCTIONS_LOADED', true );
+
+define( 'GENROLLA_VERSION', '2.1.4' );
 
 /* ============================================================
  * THEME SETUP
