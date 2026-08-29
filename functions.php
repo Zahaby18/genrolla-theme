@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'GENROLLA_VERSION', '2.1.2' );
+define( 'GENROLLA_VERSION', '2.1.3' );
 
 /* ============================================================
  * THEME SETUP
@@ -200,8 +200,57 @@ function genrolla_customize_register( $wp_customize ) {
     $wp_customize->add_control( 'genrolla_footer_credit', array(
         'label' => esc_html__( 'Footer Credit Text (optional — e.g. "Made with ♥ by Your Brand")', 'genrolla' ), 'section' => 'title_tagline', 'type' => 'text',
     ) );
+    /* --- Advanced: Head & Body Code (Google Tag / GTM / Analytics) --- */
+    $wp_customize->add_section( 'genrolla_advanced', array(
+        'title' => esc_html__( 'Advanced Code (Analytics)', 'genrolla' ), 'priority' => 40,
+    ) );
+    $wp_customize->add_setting( 'genrolla_head_code', array(
+        'default' => '', 'sanitize_callback' => 'genrolla_sanitize_code',
+    ) );
+    $wp_customize->add_control( 'genrolla_head_code', array(
+        'label' => esc_html__( 'Head Code', 'genrolla' ),
+        'description' => esc_html__( 'Paste Google Tag / GTM / Analytics snippet here. Output before </head>.', 'genrolla' ),
+        'section' => 'genrolla_advanced', 'type' => 'textarea',
+    ) );
+    $wp_customize->add_setting( 'genrolla_body_code', array(
+        'default' => '', 'sanitize_callback' => 'genrolla_sanitize_code',
+    ) );
+    $wp_customize->add_control( 'genrolla_body_code', array(
+        'label' => esc_html__( 'Body Code', 'genrolla' ),
+        'description' => esc_html__( 'GTM noscript/body snippet. Output right after <body>.', 'genrolla' ),
+        'section' => 'genrolla_advanced', 'type' => 'textarea',
+    ) );
 }
 add_action( 'customize_register', 'genrolla_customize_register' );
+
+/* Sanitize tracking code: allow script/iframe/link/meta, strip event handlers & javascript: */
+function genrolla_sanitize_code( $input ) {
+    $allowed = array(
+        'script'   => array( 'async' => true, 'defer' => true, 'src' => true, 'type' => true, 'id' => true, 'crossorigin' => true, 'integrity' => true ),
+        'noscript' => array(),
+        'iframe'   => array( 'src' => true, 'width' => true, 'height' => true, 'style' => true, 'frameborder' => true, 'allowfullscreen' => true, 'allow' => true ),
+        'link'     => array( 'rel' => true, 'href' => true, 'as' => true, 'type' => true, 'crossorigin' => true, 'media' => true, 'hreflang' => true ),
+        'meta'     => array( 'name' => true, 'content' => true, 'http-equiv' => true ),
+    );
+    return wp_kses( $input, $allowed );
+}
+
+/* Output head/body codes */
+function genrolla_output_analytics_codes() {
+    $head = get_theme_mod( 'genrolla_head_code', '' );
+    if ( $head ) {
+        echo "\n<!-- Genrolla head code -->\n" . $head . "\n";
+    }
+}
+add_action( 'genrolla_head_top', 'genrolla_output_analytics_codes', 1 );
+
+function genrolla_output_analytics_body_code() {
+    $body = get_theme_mod( 'genrolla_body_code', '' );
+    if ( $body ) {
+        echo "\n<!-- Genrolla body code -->\n" . $body . "\n";
+    }
+}
+add_action( 'genrolla_body_top', 'genrolla_output_analytics_body_code', 1 );
 
 function genrolla_customize_css() {
     $bg      = get_theme_mod( 'genrolla_bg_color', '#0F1113' );

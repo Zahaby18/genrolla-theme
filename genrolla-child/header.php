@@ -4,6 +4,21 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="https://gmpg.org/xfn/11">
+
+<?php
+/**
+ * GOOGLE TAG (Analytics / GTM) — cara termudah:
+ * 1. Buka Appearance → Customize → "Advanced Code (Analytics)"
+ * 2. Paste Google Tag/GTM head snippet di "Head Code"
+ * 3. Paste noscript/body snippet di "Body Code"
+ * (nggak perlu edit file ini sama sekali)
+ *
+ * Alternatif manual — tempel Google Tag di SINI:
+ */
+?>
+
+<!-- PASTE GOOGLE TAG / GTM HEAD SNIPPET DI SINI (opsional) -->
+
 <?php do_action( 'genrolla_head_top' ); ?>
 <?php wp_head(); ?>
 <?php do_action( 'genrolla_head_bottom' ); ?>
@@ -11,6 +26,9 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
+<!-- PASTE GTM NOSCRIPT / BODY SNIPPET DI SINI (opsional) -->
+
 <?php do_action( 'genrolla_body_top' ); ?>
 
 <div class="announce">
