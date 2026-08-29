@@ -48,6 +48,17 @@ function genrolla_content_width() {
 }
 add_action( 'after_setup_theme', 'genrolla_content_width', 0 );
 
+/* Fallback menu when no Primary menu is assigned yet */
+function genrolla_default_menu() {
+    echo '<ul class="main-nav-list">';
+    wp_list_pages( array(
+        'title_li' => '',
+        'depth'    => 1,
+        'number'   => 6,
+    ) );
+    echo '</ul>';
+}
+
 /* ============================================================
  * WIDGETS
  * ============================================================ */
