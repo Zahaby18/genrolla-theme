@@ -108,8 +108,8 @@ function genrolla_demo_data() {
         'tags'       => array( 'resume', 'job-hunting', 'fresh-graduate', 'salary', 'negotiation', 'investing', 'mutual-funds', 'personal-finance', 'productivity', 'notion', 'deep-work', 'skills', 'future-of-work', 'burnout', 'mental-health', 'linkedin', 'interview', 'portfolio', 'internship', 'freelance' ),
         'posts'      => array(
             array(
-                'title'    => 'Gen Z Resume That Makes HR Stop Scrolling: 7 Must-Have Elements',
-                'slug'     => 'gen-z-resume-hr-stop-scrolling',
+                'title'    => 'Modern Resume That Makes HR Stop Scrolling: 7 Must-Have Elements',
+                'slug'     => 'Modern-resume-hr-stop-scrolling',
                 'category' => 'Career',
                 'tags'     => array( 'resume', 'job-hunting', 'fresh-graduate' ),
                 'image'    => 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop',
@@ -148,8 +148,8 @@ function genrolla_demo_data() {
                 'content'  => '<p>Your first salary hits the account and you want to buy everything you could not before. Before you splurge, here is how to budget so you do not go broke by month end.</p><h2>The 50/30/20 Rule</h2><ul><li><strong>50% Needs:</strong> rent, food, transport</li><li><strong>30% Wants:</strong> entertainment, hanging out, shopping</li><li><strong>20% Savings & Investing:</strong> pay yourself first</li></ul><h2>Separate Your Accounts</h2><p>Create three accounts: daily, savings, and emergency. Transfer automatically on payday.</p><h2>Build an Emergency Fund First</h2><p>Before investing, save 3-6 months of expenses as your safety net.</p>',
             ),
             array(
-                'title'    => 'Deep Work for Gen Z: 2 Focused Hours Beat 8 Distracted Ones',
-                'slug'     => 'deep-work-gen-z',
+                'title'    => 'Deep Work: 2 Focused Hours Beat 8 Distracted Ones',
+                'slug'     => 'deep-work-Modern',
                 'category' => 'Productivity',
                 'tags'     => array( 'productivity', 'deep-work' ),
                 'image'    => 'https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?q=80&w=800&auto=format&fit=crop',
@@ -177,7 +177,7 @@ function genrolla_demo_data() {
                 'category' => 'Lifestyle',
                 'tags'     => array( 'burnout', 'mental-health' ),
                 'image'    => 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=800&auto=format&fit=crop',
-                'content'  => '<p>Mentally exhausted but cannot take a break? That is not laziness — it is burnout. And burnout in your early twenties is real.</p><h2>Signs of Burnout</h2><ul><li>Mood swings and easy irritability</li><li>No energy for things you used to love</li><li>Trouble sleeping or sleeping too much</li><li>Physical symptoms: headaches, stomach issues</li></ul><h2>Why Gen Z Is Vulnerable</h2><p>Hustle culture, social comparison, and sky-high expectations pile on the pressure.</p><h2>How to Recover</h2><ul><li>Lighten your load, learn to say no</li><li>Take a screen-time detox</li><li>Do light exercise</li><li>Do not hesitate to seek professional help</li></ul>',
+                'content'  => '<p>Mentally exhausted but cannot take a break? That is not laziness — it is burnout. And burnout in your early twenties is real.</p><h2>Signs of Burnout</h2><ul><li>Mood swings and easy irritability</li><li>No energy for things you used to love</li><li>Trouble sleeping or sleeping too much</li><li>Physical symptoms: headaches, stomach issues</li></ul><h2>Why Young Professionals Are Vulnerable</h2><p>Hustle culture, social comparison, and sky-high expectations pile on the pressure.</p><h2>How to Recover</h2><ul><li>Lighten your load, learn to say no</li><li>Take a screen-time detox</li><li>Do light exercise</li><li>Do not hesitate to seek professional help</li></ul>',
             ),
             array(
                 'title'    => 'LinkedIn Profile Check: 5 Things That Make Recruiters DM You',
@@ -248,7 +248,7 @@ function genrolla_demo_import() {
 
         // Assign posts #1, #3, #6 to Highlight as well (fallback trending demo)
         $extra_cats = array();
-        if ( in_array( $post_data['slug'], array( 'gen-z-resume-hr-stop-scrolling', 'salary-negotiation-fresh-graduates', 'deep-work-gen-z' ), true ) && ! empty( $cat_ids['highlight'] ) ) {
+        if ( in_array( $post_data['slug'], array( 'Modern-resume-hr-stop-scrolling', 'salary-negotiation-fresh-graduates', 'deep-work-Modern' ), true ) && ! empty( $cat_ids['highlight'] ) ) {
             $extra_cats = array( (int) $cat_ids['highlight'] );
         }
 

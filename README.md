@@ -1,12 +1,12 @@
-# Genrolla — Gen Z Blog Theme
+# Genrolla — Modern Blog Theme
 
 **Version:** 2.0.0 · **License:** GPL v2+
 
-A fast, SEO-friendly, Gen Z blog theme. Semi-dark design with a neon green accent. Built for blogs, affiliate marketing, and AdSense monetization.
+A fast, SEO-friendly, modern blog theme. Semi-dark design with a neon green accent. Built for blogs, affiliate marketing, and AdSense monetization.
 
 ## ✨ Features
 
-- 🎨 **Gen Z design** — semi-dark `#0F1113` + neon green `#A3FF12`, Space Grotesk + Inter fonts
+- 🎨 **Modern design** — semi-dark `#0F1113` + neon green `#A3FF12`, Space Grotesk + Inter fonts
 - 📱 **Fully responsive** — mobile, tablet, desktop
 - 🔍 **SEO-ready**:
   - Schema.org Article + BreadcrumbList (JSON-LD)
@@ -72,7 +72,7 @@ The theme provides the section + HTML form. To actually send emails:
 ## 📝 Changelog
 
 ### 2.0.0
-- Full redesign: semi-dark + neon green (Gen Z aesthetic)
+- Full redesign: semi-dark + neon green (modern aesthetic)
 - One-click demo importer (12 posts, categories, tags, images, comments)
 - SEO: schema, breadcrumb, ToC, author box
 - Trending section (comment count → Highlight fallback)

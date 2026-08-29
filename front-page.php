@@ -18,7 +18,7 @@ $hero_style = $hero_img ? 'background-image:url(' . esc_url( $hero_img ) . ')' :
         <div class="hero-content">
             <span class="eyebrow"><span class="pulse"></span> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
             <h1><?php echo wp_kses_post( get_theme_mod( 'genrolla_hero_title', __( 'Level up your career, your way.', 'genrolla' ) ) ); ?></h1>
-            <p class="sub"><?php echo esc_html( get_theme_mod( 'genrolla_hero_subtitle', __( 'Practical guides for Gen Z who want to work smart, not just work hard.', 'genrolla' ) ) ); ?></p>
+            <p class="sub"><?php echo esc_html( get_theme_mod( 'genrolla_hero_subtitle', __( 'Practical guides to help you work smart, not just work hard.', 'genrolla' ) ) ); ?></p>
             <div class="hero-cta">
                 <?php
                 $btn_url  = get_theme_mod( 'genrolla_hero_btn_url', '' );

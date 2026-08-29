@@ -1,6 +1,6 @@
 <?php
 /**
- * Genrolla — Gen Z Blog Theme
+ * Genrolla — Modern Blog Theme
  *
  * @package Genrolla
  * @version 2.0.0
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'GENROLLA_VERSION', '2.0.0' );
+define( 'GENROLLA_VERSION', '2.1.1' );
 
 /* ============================================================
  * THEME SETUP
@@ -136,7 +136,7 @@ function genrolla_customize_register( $wp_customize ) {
         'label' => esc_html__( 'Hero Title', 'genrolla' ), 'section' => 'genrolla_hero', 'type' => 'textarea',
     ) );
     $wp_customize->add_setting( 'genrolla_hero_subtitle', array(
-        'default' => esc_html__( 'Practical guides for Gen Z who want to work smart, not just work hard.', 'genrolla' ),
+        'default' => esc_html__( 'Practical guides to help you work smart, not just work hard.', 'genrolla' ),
         'sanitize_callback' => 'sanitize_textarea_field',
     ) );
     $wp_customize->add_control( 'genrolla_hero_subtitle', array(
