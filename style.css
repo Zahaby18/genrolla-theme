@@ -172,7 +172,11 @@ footer.site-footer{background:var(--bg-footer);border-top:1px solid var(--line);
   .hero h1{font-size:42px;letter-spacing:-1.5px}
   .featured-grid{grid-template-columns:1fr}
   .post-grid{grid-template-columns:1fr}
-  .newsletter{padding:44px 28px}
+  .newsletter{padding:40px 24px;gap:28px}
+  .newsletter h2{font-size:30px}
+  .nl-form{min-width:0;width:100%;flex-direction:column;max-width:none}
+  .nl-form input{width:100%;text-align:center}
+  .nl-form .btn{width:100%;justify-content:center}
   .footer-grid{grid-template-columns:1fr}
   .hero-meta{gap:24px}
 }
