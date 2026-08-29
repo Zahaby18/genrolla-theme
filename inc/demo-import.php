@@ -12,6 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+/* File-level guard — prevents double-load fatal errors. */
+if ( defined( 'GENROLLA_DEMO_IMPORT_LOADED' ) ) {
+    return;
+}
+define( 'GENROLLA_DEMO_IMPORT_LOADED', true );
+
 /* ---------- Admin page: Appearance > Import Demo ---------- */
 function genrolla_demo_menu() {
     add_theme_page(

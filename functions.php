@@ -20,11 +20,14 @@ if ( defined( 'GENROLLA_FUNCTIONS_LOADED' ) ) {
 }
 define( 'GENROLLA_FUNCTIONS_LOADED', true );
 
-define( 'GENROLLA_VERSION', '2.1.4' );
+if ( ! defined( 'GENROLLA_VERSION' ) ) {
+    define( 'GENROLLA_VERSION', '2.1.4' );
+}
 
 /* ============================================================
  * THEME SETUP
  * ============================================================ */
+if ( ! function_exists( 'genrolla_setup' ) ) {
 function genrolla_setup() {
     load_theme_textdomain( 'genrolla', get_template_directory() . '/languages' );
 
@@ -51,14 +54,18 @@ function genrolla_setup() {
     add_image_size( 'genrolla-card', 600, 375, true );
     add_image_size( 'genrolla-featured', 1100, 620, true );
 }
+}
 add_action( 'after_setup_theme', 'genrolla_setup' );
 
+if ( ! function_exists( 'genrolla_content_width' ) ) {
 function genrolla_content_width() {
     $GLOBALS['content_width'] = apply_filters( 'genrolla_content_width', 800 );
+}
 }
 add_action( 'after_setup_theme', 'genrolla_content_width', 0 );
 
 /* Fallback menu when no Primary menu is assigned yet */
+if ( ! function_exists( 'genrolla_default_menu' ) ) {
 function genrolla_default_menu() {
     echo '<ul class="main-nav-list">';
     wp_list_pages( array(
@@ -68,10 +75,12 @@ function genrolla_default_menu() {
     ) );
     echo '</ul>';
 }
+}
 
 /* ============================================================
  * WIDGETS
  * ============================================================ */
+if ( ! function_exists( 'genrolla_widgets_init' ) ) {
 function genrolla_widgets_init() {
     register_sidebar( array(
         'name'          => esc_html__( 'Sidebar', 'genrolla' ),
@@ -95,11 +104,13 @@ function genrolla_widgets_init() {
         ) );
     }
 }
+}
 add_action( 'widgets_init', 'genrolla_widgets_init' );
 
 /* ============================================================
  * ENQUEUE
  * ============================================================ */
+if ( ! function_exists( 'genrolla_scripts' ) ) {
 function genrolla_scripts() {
     // Google Fonts
     wp_enqueue_style( 'genrolla-fonts', 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap', array(), null );
@@ -119,11 +130,13 @@ function genrolla_scripts() {
         wp_enqueue_script( 'comment-reply' );
     }
 }
+}
 add_action( 'wp_enqueue_scripts', 'genrolla_scripts' );
 
 /* ============================================================
  * CUSTOMIZER
  * ============================================================ */
+if ( ! function_exists( 'genrolla_customize_register' ) ) {
 function genrolla_customize_register( $wp_customize ) {
 
     /* --- Colors --- */
@@ -242,9 +255,11 @@ function genrolla_customize_register( $wp_customize ) {
         'section' => 'genrolla_advanced', 'type' => 'textarea',
     ) );
 }
+}
 add_action( 'customize_register', 'genrolla_customize_register' );
 
 /* Sanitize tracking code: allow script/iframe/link/meta, strip event handlers & javascript: */
+if ( ! function_exists( 'genrolla_sanitize_code' ) ) {
 function genrolla_sanitize_code( $input ) {
     $allowed = array(
         'script'   => array( 'async' => true, 'defer' => true, 'src' => true, 'type' => true, 'id' => true, 'crossorigin' => true, 'integrity' => true ),
@@ -255,24 +270,30 @@ function genrolla_sanitize_code( $input ) {
     );
     return wp_kses( $input, $allowed );
 }
+}
 
 /* Output head/body codes */
+if ( ! function_exists( 'genrolla_output_analytics_codes' ) ) {
 function genrolla_output_analytics_codes() {
     $head = get_theme_mod( 'genrolla_head_code', '' );
     if ( $head ) {
         echo "\n<!-- Genrolla head code -->\n" . $head . "\n";
     }
 }
+}
 add_action( 'genrolla_head_top', 'genrolla_output_analytics_codes', 1 );
 
+if ( ! function_exists( 'genrolla_output_analytics_body_code' ) ) {
 function genrolla_output_analytics_body_code() {
     $body = get_theme_mod( 'genrolla_body_code', '' );
     if ( $body ) {
         echo "\n<!-- Genrolla body code -->\n" . $body . "\n";
     }
 }
+}
 add_action( 'genrolla_body_top', 'genrolla_output_analytics_body_code', 1 );
 
+if ( ! function_exists( 'genrolla_customize_css' ) ) {
 function genrolla_customize_css() {
     $bg      = get_theme_mod( 'genrolla_bg_color', '#0F1113' );
     $accent  = get_theme_mod( 'genrolla_accent_color', '#A3FF12' );
@@ -282,6 +303,7 @@ function genrolla_customize_css() {
     </style>
     <?php
 }
+}
 add_action( 'wp_head', 'genrolla_customize_css', 20 );
 
 /* ============================================================
@@ -289,6 +311,7 @@ add_action( 'wp_head', 'genrolla_customize_css', 20 );
  * ============================================================ */
 
 /* Article schema (JSON-LD) on single posts */
+if ( ! function_exists( 'genrolla_schema_article' ) ) {
 function genrolla_schema_article() {
     if ( ! is_single() ) {
         return;
@@ -316,9 +339,11 @@ function genrolla_schema_article() {
     }
     echo '<script type="application/ld+json">' . wp_json_encode( $schema ) . '</script>' . "\n";
 }
+}
 add_action( 'wp_head', 'genrolla_schema_article' );
 
 /* BreadcrumbList schema */
+if ( ! function_exists( 'genrolla_schema_breadcrumb' ) ) {
 function genrolla_schema_breadcrumb( $items ) {
     $schema = array(
         '@context'        => 'https://schema.org',
@@ -337,10 +362,12 @@ function genrolla_schema_breadcrumb( $items ) {
     }
     echo '<script type="application/ld+json">' . wp_json_encode( $schema ) . '</script>' . "\n";
 }
+}
 
 /* ============================================================
  * BREADCRUMB
  * ============================================================ */
+if ( ! function_exists( 'genrolla_breadcrumb' ) ) {
 function genrolla_breadcrumb() {
     if ( is_front_page() ) {
         return;
@@ -424,12 +451,14 @@ function genrolla_breadcrumb() {
     // JSON-LD
     genrolla_schema_breadcrumb( $items );
 }
+}
 
 /* ============================================================
  * MISC HELPERS
  * ============================================================ */
 
 /* Trending posts: most commented first, fallback to "Highlight" category, then latest */
+if ( ! function_exists( 'genrolla_get_trending' ) ) {
 function genrolla_get_trending( $count = 3 ) {
     $args = array(
         'posts_per_page'      => $count,
@@ -470,8 +499,10 @@ function genrolla_get_trending( $count = 3 ) {
 
     return $posts;
 }
+}
 
 /* Read time */
+if ( ! function_exists( 'genrolla_read_time' ) ) {
 function genrolla_read_time( $post_id = null ) {
     $content = get_post_field( 'post_content', $post_id ? $post_id : get_the_ID() );
     $words   = str_word_count( wp_strip_all_tags( $content ) );
@@ -479,8 +510,10 @@ function genrolla_read_time( $post_id = null ) {
     /* translators: %d: minutes */
     return sprintf( _n( '%d min read', '%d min read', $minutes, 'genrolla' ), $minutes );
 }
+}
 
 /* Category badge (first category of post) */
+if ( ! function_exists( 'genrolla_first_category' ) ) {
 function genrolla_first_category( $post_id = null ) {
     $cats = get_the_category( $post_id ? $post_id : get_the_ID() );
     if ( empty( $cats ) ) {
@@ -488,16 +521,20 @@ function genrolla_first_category( $post_id = null ) {
     }
     return '<a href="' . esc_url( get_category_link( $cats[0]->term_id ) ) . '" class="cat">' . esc_html( $cats[0]->name ) . '</a>';
 }
+}
 
 /* Card fallback class when no thumbnail */
+if ( ! function_exists( 'genrolla_card_fallback_class' ) ) {
 function genrolla_card_fallback_class( $post_id = null ) {
     if ( has_post_thumbnail( $post_id ? $post_id : get_the_ID() ) ) {
         return '';
     }
     return ' no-thumb';
 }
+}
 
 /* Post excerpt fallback */
+if ( ! function_exists( 'genrolla_excerpt' ) ) {
 function genrolla_excerpt( $post_id = null, $length = 22 ) {
     $post_id = $post_id ? $post_id : get_the_ID();
     $excerpt = get_the_excerpt( $post_id );
@@ -510,8 +547,10 @@ function genrolla_excerpt( $post_id = null, $length = 22 ) {
     }
     return $excerpt;
 }
+}
 
 /* Related posts by shared category */
+if ( ! function_exists( 'genrolla_related_posts' ) ) {
 function genrolla_related_posts( $count = 3 ) {
     $cats = wp_get_post_categories( get_the_ID() );
     if ( empty( $cats ) ) {
@@ -526,10 +565,13 @@ function genrolla_related_posts( $count = 3 ) {
     );
     return get_posts( $args );
 }
+}
 
 /* Author box template part loader */
+if ( ! function_exists( 'genrolla_author_box' ) ) {
 function genrolla_author_box() {
     get_template_part( 'template-parts/author-box' );
+}
 }
 
 /* ============================================================
@@ -537,6 +579,7 @@ function genrolla_author_box() {
  * ============================================================ */
 
 /* Register CPT "subscriber" automatically on theme activation */
+if ( ! function_exists( 'genrolla_register_subscriber_cpt' ) ) {
 function genrolla_register_subscriber_cpt() {
     register_post_type( 'subscriber', array(
         'labels'       => array(
@@ -556,9 +599,11 @@ function genrolla_register_subscriber_cpt() {
         'rewrite'      => false,
     ) );
 }
+}
 add_action( 'init', 'genrolla_register_subscriber_cpt' );
 
 /* Handle newsletter form submission -> store email in CPT */
+if ( ! function_exists( 'genrolla_handle_subscribe' ) ) {
 function genrolla_handle_subscribe() {
     if ( ! isset( $_POST['genrolla_subscribe'] ) ) {
         return;
@@ -598,9 +643,11 @@ function genrolla_handle_subscribe() {
     wp_safe_redirect( add_query_arg( 'subscribed', '1', wp_get_referer() ? wp_get_referer() : home_url( '/' ) ) );
     exit;
 }
+}
 add_action( 'template_redirect', 'genrolla_handle_subscribe' );
 
 /* Export CSV button on the Subscribers list page */
+if ( ! function_exists( 'genrolla_subscriber_views' ) ) {
 function genrolla_subscriber_views( $views ) {
     if ( current_user_can( 'manage_options' ) ) {
         $url = wp_nonce_url( admin_url( 'edit.php?post_type=subscriber&genrolla_export=1' ), 'genrolla_export' );
@@ -608,9 +655,11 @@ function genrolla_subscriber_views( $views ) {
     }
     return $views;
 }
+}
 add_filter( 'views_edit-subscriber', 'genrolla_subscriber_views' );
 
 /* Handle CSV export */
+if ( ! function_exists( 'genrolla_export_subscribers_csv' ) ) {
 function genrolla_export_subscribers_csv() {
     if ( ! isset( $_GET['genrolla_export'] ) || ! current_user_can( 'manage_options' ) ) {
         return;
@@ -635,11 +684,13 @@ function genrolla_export_subscribers_csv() {
     fclose( $out );
     exit;
 }
+}
 add_action( 'admin_init', 'genrolla_export_subscribers_csv' );
 
 /* ============================================================
  * RECOMMENDED PLUGINS NOTICE (soft, one-time dismiss)
  * ============================================================ */
+if ( ! function_exists( 'genrolla_recommended_plugins_notice' ) ) {
 function genrolla_recommended_plugins_notice() {
     if ( ! current_user_can( 'install_plugins' ) ) {
         return;
@@ -659,8 +710,10 @@ function genrolla_recommended_plugins_notice() {
     </div>
     <?php
 }
+}
 add_action( 'admin_notices', 'genrolla_recommended_plugins_notice' );
 
+if ( ! function_exists( 'genrolla_dismiss_plugins_notice' ) ) {
 function genrolla_dismiss_plugins_notice() {
     if ( isset( $_GET['genrolla_dismiss_plugins'] ) && check_admin_referer( 'genrolla_dismiss' ) ) {
         update_option( 'genrolla_plugins_notice_dismissed', 1 );
@@ -668,9 +721,10 @@ function genrolla_dismiss_plugins_notice() {
         exit;
     }
 }
+}
 add_action( 'admin_init', 'genrolla_dismiss_plugins_notice' );
 
 /* ============================================================
  * DEMO CONTENT IMPORTER (one click)
  * ============================================================ */
-require get_template_directory() . '/inc/demo-import.php';
+require_once get_template_directory() . '/inc/demo-import.php';
