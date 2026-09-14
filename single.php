@@ -42,6 +42,8 @@ get_header();
                         <?php the_content(); ?>
                     </div>
 
+                    <?php genrolla_faq_render(); ?>
+
                     <?php
                     $tags = get_the_tags();
                     if ( $tags ) :

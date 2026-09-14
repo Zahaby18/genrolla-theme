@@ -59,6 +59,7 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
     <li><a href="#trending">Trending Section</a></li>
     <li><a href="#newsletter">Newsletter</a></li>
     <li><a href="#seo">SEO Features</a></li>
+    <li><a href="#faq">FAQ (Accordion)</a></li>
     <li><a href="#plugins">Recommended Plugins</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#changelog">Changelog</a></li>
@@ -188,8 +189,22 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
   </ul>
 </section>
 
+<section id="faq">
+  <h2>10. <span>FAQ (Accordion)</span></h2>
+  <p>Every post can include a FAQ accordion section without any plugin:</p>
+  <ol>
+    <li>Edit a post and scroll to the <strong>FAQ (Accordion)</strong> meta box</li>
+    <li>Click <strong>Add FAQ item</strong> and fill in a question and an answer</li>
+    <li>Repeat for as many items as you need, then update the post</li>
+  </ol>
+  <p>On the front end, a section titled <strong>Frequently Asked Question</strong> (H2) appears directly after the post content, with each question as an H3 inside a collapsible accordion. The section is conditional: if no FAQ items are filled in, nothing is rendered.</p>
+  <h3>SEO</h3>
+  <p>When at least one FAQ item exists, the theme automatically outputs <strong>FAQPage JSON-LD schema</strong> with every question and answer, which can help posts appear in Google rich results. No FAQ means no schema output.</p>
+  <p>The section heading is filterable with <code>genrolla_faq_title</code>.</p>
+</section>
+
 <section id="plugins">
-  <h2>10. <span>Recommended Plugins</span></h2>
+  <h2>11. <span>Recommended Plugins</span></h2>
   <table>
     <tr><th>Plugin</th><th>Purpose</th><th>Required?</th></tr>
     <tr><td><strong>Yoast SEO</strong></td><td>Meta descriptions, XML sitemaps, advanced SEO</td><td>Optional (recommended)</td></tr>
@@ -200,7 +215,7 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
 </section>
 
 <section id="faq">
-  <h2>11. <span>FAQ</span></h2>
+  <h2>12. <span>FAQ</span></h2>
   <h3>Where do I edit the About page content?</h3>
   <p>Create/edit a page, fill in the title, excerpt, featured image, and body content in the editor, then select the <strong>About</strong> template.</p>
   <h3>Does the theme work with the Classic Editor?</h3>
@@ -214,7 +229,11 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
 </section>
 
 <section id="changelog">
-  <h2>12. <span>Changelog</span></h2>
+  <h2>13. <span>Changelog</span></h2>
+  <h3>2.2.0</h3>
+  <ul>
+    <li>New FAQ (Accordion) feature: repeater meta box in the post editor, conditional accordion section after the content, and automatic FAQPage JSON-LD schema</li>
+  </ul>
   <h3>2.1.4</h3>
   <ul>
     <li>Fixed "Cannot redeclare" fatal when the child theme loads parent functions.php — added a file-level guard so the file can never run twice</li>

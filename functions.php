@@ -21,7 +21,7 @@ if ( defined( 'GENROLLA_FUNCTIONS_LOADED' ) ) {
 define( 'GENROLLA_FUNCTIONS_LOADED', true );
 
 if ( ! defined( 'GENROLLA_VERSION' ) ) {
-    define( 'GENROLLA_VERSION', '2.1.4' );
+    define( 'GENROLLA_VERSION', '2.2.0' );
 }
 
 /* ============================================================
@@ -728,3 +728,8 @@ add_action( 'admin_init', 'genrolla_dismiss_plugins_notice' );
  * DEMO CONTENT IMPORTER (one click)
  * ============================================================ */
 require_once get_template_directory() . '/inc/demo-import.php';
+
+/* ============================================================
+ * FAQ (ACCORDION) + FAQPAGE SCHEMA
+ * ============================================================ */
+require_once get_template_directory() . '/inc/faq.php';

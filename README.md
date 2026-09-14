@@ -17,6 +17,7 @@ A fast, SEO-friendly, modern blog theme. Semi-dark design with a neon green acce
 - 🚀 **One-click demo import** — `Appearance → Import Demo` → 12 posts + 6 categories + 20 tags + featured images + comments (resettable)
 - 🔥 **Trending section** — most-commented posts first, falls back to the **Highlight** category, then latest
 - 🖼️ **Card image fallback** — gradient + icon when a post has no image
+- ❓ **FAQ (Accordion)** — repeater meta box in the post editor, conditional accordion section after the content, and automatic FAQPage JSON-LD schema
 - 📬 **Newsletter section** — supports plugin shortcodes (MC4WP/ConvertKit) or a form action URL
 - ⚙️ **Customizer** — colors (background + accent), hero (image/title/subtitle/button), newsletter, copyright
 - 🧩 **Gutenberg & Classic Editor compatible** — no page builder required
@@ -51,6 +52,7 @@ genrolla/
 ├── template-full-width.php# Full-width page template
 ├── search.php / 404.php / comments.php / searchform.php
 ├── inc/demo-import.php    # One-click demo content importer
+├── inc/faq.php            # FAQ accordion + FAQPage schema
 ├── template-parts/        # card.php + author-box.php
 ├── assets/                # main.js, featured/
 └── screenshot.png

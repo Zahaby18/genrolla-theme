@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genrolla 2.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/Zahaby18/genrolla-theme/issues\n"
-"POT-Creation-Date: 2026-08-29 06:19+0000\n"
+"POT-Creation-Date: 2026-09-14 14:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,6 +41,14 @@ msgstr ""
 msgid "Accent (Neon) Color"
 msgstr ""
 
+#: inc/faq.php:200
+msgid "Add FAQ item"
+msgstr ""
+
+#: inc/faq.php:180
+msgid "Add question and answer pairs. The FAQ section and its schema markup only appear on the front end when at least one pair is filled in."
+msgstr ""
+
 #: functions.php:239
 msgid "Advanced Code (Analytics)"
 msgstr ""
@@ -60,6 +68,11 @@ msgstr ""
 #: footer.php:77
 #: functions.php:226
 msgid "All rights reserved."
+msgstr ""
+
+#: inc/faq.php:192
+#: inc/faq.php:212
+msgid "Answer"
 msgstr ""
 
 #: functions.php:88
@@ -126,6 +139,10 @@ msgstr ""
 msgid "Export CSV"
 msgstr ""
 
+#: inc/faq.php:143
+msgid "FAQ (Accordion)"
+msgstr ""
+
 #: functions.php:97
 msgid "Footer Column %d"
 msgstr ""
@@ -144,6 +161,10 @@ msgstr ""
 
 #: functions.php:213
 msgid "Form action URL (optional — overrides built-in storage; use MC4WP/ConvertKit endpoint)"
+msgstr ""
+
+#: inc/faq.php:61
+msgid "Frequently Asked Question"
 msgstr ""
 
 #: front-page.php:120
@@ -245,7 +266,7 @@ msgstr ""
 msgid "Newsletter Title"
 msgstr ""
 
-#: single.php:73
+#: single.php:75
 msgid "Next"
 msgstr ""
 
@@ -291,7 +312,7 @@ msgstr ""
 msgid "Practical guides to help you work smart, not just work hard."
 msgstr ""
 
-#: single.php:67
+#: single.php:69
 msgid "Previous"
 msgstr ""
 
@@ -303,12 +324,22 @@ msgstr ""
 msgid "Primary Navigation"
 msgstr ""
 
+#: inc/faq.php:190
+#: inc/faq.php:210
+msgid "Question (H3)"
+msgstr ""
+
 #: front-page.php:38
 msgid "Reader rating"
 msgstr ""
 
 #: front-page.php:37
 msgid "Readers / month"
+msgstr ""
+
+#: inc/faq.php:188
+#: inc/faq.php:208
+msgid "Remove"
 msgstr ""
 
 #: inc/demo-import.php:72

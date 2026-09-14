@@ -4,7 +4,7 @@ Theme URI: https://github.com/Zahaby18/genrolla-theme
 Author: Zahab
 Author URI: https://github.com/Zahaby18
 Description: Fast, SEO-friendly, modern blog theme. Semi-dark with neon green accent. Built-in breadcrumb, schema markup, Table of Contents, author box, trending section, one-click demo importer. Perfect for content creators, affiliate marketing and AdSense monetization.
-Version: 2.1.4
+Version: 2.2.0
 Requires at least: 5.8
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -463,3 +463,33 @@ footer.site-footer{background:var(--bg-footer);border-top:1px solid var(--line);
 .nl-notice{margin-top:12px;font-size:14px;font-weight:600;padding:10px 16px;border-radius:10px;display:inline-flex;gap:8px;align-items:center}
 .nl-success{background:rgba(15,17,19,.1);color:#0F1113}
 .nl-error{background:rgba(255,255,255,.85);color:#B3261E}
+/* ============================================================
+   FAQ (Accordion) — front end
+   ============================================================ */
+.genrolla-faq{margin-top:44px;padding-top:32px;border-top:1px solid var(--line)}
+.genrolla-faq .faq-heading{font-family:var(--font-display);font-size:26px;font-weight:700;letter-spacing:-.5px;color:var(--ink);margin:0 0 20px}
+.genrolla-faq .faq-list{display:flex;flex-direction:column;gap:12px}
+.genrolla-faq .faq-item{background:var(--bg-alt);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.genrolla-faq .faq-item:hover{border-color:var(--neon)}
+.genrolla-faq .faq-item[open]{border-color:var(--neon)}
+.genrolla-faq .faq-question{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;cursor:pointer;list-style:none;transition:background .2s}
+.genrolla-faq .faq-question::-webkit-details-marker{display:none}
+.genrolla-faq .faq-question h3{font-family:var(--font-display);font-size:17px;font-weight:700;line-height:1.4;color:var(--ink);margin:0}
+.genrolla-faq .faq-icon{position:relative;flex:0 0 18px;width:18px;height:18px}
+.genrolla-faq .faq-icon::before,
+.genrolla-faq .faq-icon::after{content:"";position:absolute;top:50%;left:0;width:18px;height:2px;background:var(--neon);border-radius:2px;transition:transform .25s ease}
+.genrolla-faq .faq-icon::after{transform:rotate(90deg)}
+.genrolla-faq .faq-item[open] .faq-icon::after{transform:rotate(0deg)}
+.genrolla-faq .faq-answer{padding:0 20px 18px;font-size:16px;line-height:1.8;color:#D5DAE0}
+.genrolla-faq .faq-answer p{margin:0 0 12px}
+.genrolla-faq .faq-answer p:last-child{margin-bottom:0}
+.genrolla-faq .faq-answer ul,
+.genrolla-faq .faq-answer ol{margin:0 0 12px 20px}
+.genrolla-faq .faq-answer a{color:var(--neon);text-decoration:underline;text-underline-offset:3px}
+
+@media(max-width:768px){
+  .genrolla-faq .faq-heading{font-size:22px}
+  .genrolla-faq .faq-question{padding:14px 16px}
+  .genrolla-faq .faq-question h3{font-size:16px}
+  .genrolla-faq .faq-answer{padding:0 16px 16px;font-size:15px}
+}
