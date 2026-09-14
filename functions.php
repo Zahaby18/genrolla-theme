@@ -21,7 +21,7 @@ if ( defined( 'GENROLLA_FUNCTIONS_LOADED' ) ) {
 define( 'GENROLLA_FUNCTIONS_LOADED', true );
 
 if ( ! defined( 'GENROLLA_VERSION' ) ) {
-    define( 'GENROLLA_VERSION', '2.2.0' );
+    define( 'GENROLLA_VERSION', '2.2.1' );
 }
 
 /* ============================================================
@@ -125,6 +125,11 @@ function genrolla_scripts() {
     }
     // Theme JS
     wp_enqueue_script( 'genrolla-main', get_template_directory_uri() . '/assets/js/main.js', array(), GENROLLA_VERSION, true );
+
+    // FAQ accordion behaviour (only when the post actually has FAQ items)
+    if ( is_singular( 'post' ) && function_exists( 'genrolla_get_faq' ) && genrolla_get_faq() ) {
+        wp_enqueue_script( 'genrolla-faq', get_template_directory_uri() . '/assets/js/faq.js', array(), GENROLLA_VERSION, true );
+    }
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );

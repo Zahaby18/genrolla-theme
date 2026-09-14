@@ -4,7 +4,7 @@ Theme URI: https://github.com/Zahaby18/genrolla-theme
 Author: Zahab
 Author URI: https://github.com/Zahaby18
 Description: Fast, SEO-friendly, modern blog theme. Semi-dark with neon green accent. Built-in breadcrumb, schema markup, Table of Contents, author box, trending section, one-click demo importer. Perfect for content creators, affiliate marketing and AdSense monetization.
-Version: 2.2.0
+Version: 2.2.1
 Requires at least: 5.8
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -480,12 +480,19 @@ footer.site-footer{background:var(--bg-footer);border-top:1px solid var(--line);
 .genrolla-faq .faq-icon::after{content:"";position:absolute;top:50%;left:0;width:18px;height:2px;background:var(--neon);border-radius:2px;transition:transform .25s ease}
 .genrolla-faq .faq-icon::after{transform:rotate(90deg)}
 .genrolla-faq .faq-item[open] .faq-icon::after{transform:rotate(0deg)}
-.genrolla-faq .faq-answer{padding:0 20px 18px;font-size:16px;line-height:1.8;color:#D5DAE0}
+.genrolla-faq .faq-answer{padding:0 20px 18px;font-size:16px;line-height:1.8;color:#D5DAE0;overflow:hidden}
+.genrolla-faq .faq-item[open] .faq-question{background:rgba(163,255,18,.04)}
 .genrolla-faq .faq-answer p{margin:0 0 12px}
 .genrolla-faq .faq-answer p:last-child{margin-bottom:0}
 .genrolla-faq .faq-answer ul,
 .genrolla-faq .faq-answer ol{margin:0 0 12px 20px}
 .genrolla-faq .faq-answer a{color:var(--neon);text-decoration:underline;text-underline-offset:3px}
+
+@media(prefers-reduced-motion:reduce){
+  .genrolla-faq .faq-answer{transition:none !important}
+  .genrolla-faq .faq-icon::before,
+  .genrolla-faq .faq-icon::after{transition:none !important}
+}
 
 @media(max-width:768px){
   .genrolla-faq .faq-heading{font-size:22px}

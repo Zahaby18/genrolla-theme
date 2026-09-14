@@ -197,7 +197,7 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
     <li>Click <strong>Add FAQ item</strong> and fill in a question and an answer</li>
     <li>Repeat for as many items as you need, then update the post</li>
   </ol>
-  <p>On the front end, a section titled <strong>Frequently Asked Question</strong> (H2) appears directly after the post content, with each question as an H3 inside a collapsible accordion. The section is conditional: if no FAQ items are filled in, nothing is rendered.</p>
+  <p>On the front end, a section titled <strong>Frequently Asked Question</strong> (H2) appears directly after the post content, with each question as an H3 inside a collapsible accordion. Only one item can be open at a time (opening another closes the current one), and open/close is animated. The section is conditional: if no FAQ items are filled in, nothing is rendered.</p>
   <h3>SEO</h3>
   <p>When at least one FAQ item exists, the theme automatically outputs <strong>FAQPage JSON-LD schema</strong> with every question and answer, which can help posts appear in Google rich results. No FAQ means no schema output.</p>
   <p>The section heading is filterable with <code>genrolla_faq_title</code>.</p>
@@ -230,6 +230,10 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
 
 <section id="changelog">
   <h2>13. <span>Changelog</span></h2>
+  <h3>2.2.1</h3>
+  <ul>
+    <li>FAQ accordion: only one item can be open at a time, with a smooth height animation on open and close (respects prefers-reduced-motion)</li>
+  </ul>
   <h3>2.2.0</h3>
   <ul>
     <li>New FAQ (Accordion) feature: repeater meta box in the post editor, conditional accordion section after the content, and automatic FAQPage JSON-LD schema</li>
