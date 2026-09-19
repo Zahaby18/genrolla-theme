@@ -21,7 +21,7 @@ if ( defined( 'GENROLLA_FUNCTIONS_LOADED' ) ) {
 define( 'GENROLLA_FUNCTIONS_LOADED', true );
 
 if ( ! defined( 'GENROLLA_VERSION' ) ) {
-    define( 'GENROLLA_VERSION', '2.2.1' );
+    define( 'GENROLLA_VERSION', '2.2.2' );
 }
 
 /* ============================================================
@@ -114,10 +114,20 @@ if ( ! function_exists( 'genrolla_scripts' ) ) {
 function genrolla_scripts() {
     // Google Fonts
     wp_enqueue_style( 'genrolla-fonts', 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap', array(), null );
-    // Font Awesome
-    wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', array(), '6.5.2' );
+
+    // Font Awesome — bundled locally with a unique handle.
+    // Elementor (and some other plugins) dequeue styles registered as
+    // "font-awesome" to load their own copy; a local, unique handle
+    // keeps the theme icons working alongside them.
+    wp_enqueue_style(
+        'genrolla-fontawesome',
+        get_template_directory_uri() . '/assets/fontawesome/css/all.min.css',
+        array(),
+        GENROLLA_VERSION
+    );
+
     // Theme CSS
-    wp_enqueue_style( 'genrolla-style', get_stylesheet_uri(), array( 'genrolla-fonts', 'font-awesome' ), GENROLLA_VERSION );
+    wp_enqueue_style( 'genrolla-style', get_stylesheet_uri(), array( 'genrolla-fonts', 'genrolla-fontawesome' ), GENROLLA_VERSION );
 
     // RTL support
     if ( is_rtl() ) {
@@ -738,3 +748,31 @@ require_once get_template_directory() . '/inc/demo-import.php';
  * FAQ (ACCORDION) + FAQPAGE SCHEMA
  * ============================================================ */
 require_once get_template_directory() . '/inc/faq.php';
+
+/* ============================================================
+ * ICON STYLESHEET SAFETY NET
+ * ============================================================ */
+
+/**
+ * Make sure the bundled Font Awesome stays loaded.
+ *
+ * Some plugins (Elementor in particular) remove icon stylesheets they do not
+ * recognise. Because the theme registers its copy with a unique handle and
+ * loads it locally, it survives that; this late re-enqueue is an extra net so
+ * icons never disappear when a page builder is active.
+ */
+if ( ! function_exists( 'genrolla_ensure_icons' ) ) {
+    function genrolla_ensure_icons() {
+        if ( wp_style_is( 'genrolla-fontawesome', 'enqueued' ) || wp_style_is( 'genrolla-fontawesome', 'done' ) ) {
+            return;
+        }
+        wp_enqueue_style(
+            'genrolla-fontawesome',
+            get_template_directory_uri() . '/assets/fontawesome/css/all.min.css',
+            array(),
+            GENROLLA_VERSION
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'genrolla_ensure_icons', 9999 );
+add_action( 'wp_print_styles', 'genrolla_ensure_icons', 1 );
