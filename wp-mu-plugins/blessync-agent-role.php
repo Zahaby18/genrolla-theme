@@ -111,3 +111,60 @@ function blessync_agent_admin_menu() {
 	remove_menu_page( 'options-general.php' );
 }
 add_action( 'admin_menu', 'blessync_agent_admin_menu', 999 );
+
+/**
+ * ============================================================
+ * ENDPOINT FAQ (untuk agent)
+ * ============================================================
+ * POST /wp-json/blessync/v1/faq
+ * Body JSON: { "post_id": 123, "items": [ { "q": "Pertanyaan?", "a": "Jawaban." }, ... ] }
+ *
+ * Menulis ke post meta "_genrolla_faq" (dipakai theme genrolla untuk render
+ * section FAQ + schema FAQPage otomatis).
+ * Izin: user harus punya capability edit_post pada post tersebut.
+ */
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'blessync/v1', '/faq', array(
+		'methods'             => 'POST',
+		'permission_callback' => function ( $request ) {
+			$post_id = (int) $request->get_param( 'post_id' );
+			if ( ! $post_id ) {
+				return new WP_Error( 'blessync_no_post', 'post_id wajib diisi.', array( 'status' => 400 ) );
+			}
+			if ( ! current_user_can( 'edit_post', $post_id ) ) {
+				return new WP_Error( 'blessync_forbidden', 'Tidak punya izin mengedit post ini.', array( 'status' => 403 ) );
+			}
+			return true;
+		},
+		'callback'            => function ( $request ) {
+			$post_id = (int) $request->get_param( 'post_id' );
+			$items   = $request->get_param( 'items' );
+
+			if ( ! is_array( $items ) ) {
+				return new WP_Error( 'blessync_bad_items', 'items harus berupa array.', array( 'status' => 400 ) );
+			}
+
+			$clean = array();
+			foreach ( $items as $item ) {
+				$q = isset( $item['q'] ) ? trim( wp_strip_all_tags( (string) $item['q'] ) ) : '';
+				$a = isset( $item['a'] ) ? trim( wp_kses_post( (string) $item['a'] ) ) : '';
+				if ( '' !== $q && '' !== $a ) {
+					$clean[] = array( 'q' => $q, 'a' => $a );
+				}
+			}
+
+			if ( empty( $clean ) ) {
+				return new WP_Error( 'blessync_empty', 'Tidak ada item FAQ yang valid.', array( 'status' => 400 ) );
+			}
+
+			update_post_meta( $post_id, '_genrolla_faq', $clean );
+
+			return array(
+				'ok'       => true,
+				'post_id'  => $post_id,
+				'count'    => count( $clean ),
+				'items'    => $clean,
+			);
+		},
+	) );
+} );
