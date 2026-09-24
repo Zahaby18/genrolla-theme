@@ -21,7 +21,11 @@ if ( defined( 'GENROLLA_FUNCTIONS_LOADED' ) ) {
 define( 'GENROLLA_FUNCTIONS_LOADED', true );
 
 if ( ! defined( 'GENROLLA_VERSION' ) ) {
-    define( 'GENROLLA_VERSION', '2.2.2' );
+    // Read the version from the parent theme header so the asset cache buster
+    // can never drift from the released version again.
+    $genrolla_parent = wp_get_theme( get_template() );
+    define( 'GENROLLA_VERSION', $genrolla_parent->get( 'Version' ) ? $genrolla_parent->get( 'Version' ) : '2.2.3' );
+    unset( $genrolla_parent );
 }
 
 /* ============================================================
@@ -135,6 +139,13 @@ function genrolla_scripts() {
     }
     // Theme JS
     wp_enqueue_script( 'genrolla-main', get_template_directory_uri() . '/assets/js/main.js', array(), GENROLLA_VERSION, true );
+    wp_localize_script(
+        'genrolla-main',
+        'genrollaStrings',
+        array(
+            'tocTitle' => __( 'Table of Contents', 'genrolla' ),
+        )
+    );
 
     // FAQ accordion behaviour (only when the post actually has FAQ items)
     if ( is_singular( 'post' ) && function_exists( 'genrolla_get_faq' ) && genrolla_get_faq() ) {

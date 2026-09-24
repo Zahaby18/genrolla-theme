@@ -29,7 +29,7 @@ get_header();
                         <span class="sep">·</span>
                         <span><?php echo esc_html( genrolla_read_time() ); ?></span>
                         <span class="sep">·</span>
-                        <span><?php echo esc_html( get_comments_number() ); ?> <?php esc_html_e( 'comments', 'genrolla' ); ?></span>
+                        <span><?php echo esc_html( sprintf( _n( '%d comment', '%d comments', get_comments_number(), 'genrolla' ), number_format_i18n( get_comments_number() ) ) ); ?></span>
                     </div>
 
                     <?php if ( has_post_thumbnail() ) : ?>

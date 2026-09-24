@@ -41,7 +41,9 @@
             tocWrap.className = 'toc';
             var tocTitle = document.createElement('div');
             tocTitle.className = 'toc-title';
-            tocTitle.innerHTML = '<i class="fa-solid fa-list"></i> Daftar Isi';
+            var tocLabel = (window.genrollaStrings && window.genrollaStrings.tocTitle) || 'Table of Contents';
+            tocTitle.innerHTML = '<i class="fa-solid fa-list"></i> ';
+            tocTitle.appendChild(document.createTextNode(tocLabel));
             tocWrap.appendChild(tocTitle);
             var tocList = document.createElement('ol');
             tocWrap.appendChild(tocList);
